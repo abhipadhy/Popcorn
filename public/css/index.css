@@ -122,6 +122,7 @@ h3 span{
 .content{
     background-color:#0a0a0a;
     position: absolute;
+    position: fixed;
     top: 0%;
     left: 70%;
     width: 30%;
@@ -204,3 +205,24 @@ iframe{
     cursor: pointer;
     transition: 0.4s;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color:#0a0a0ade;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #b6362d; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00A8E1; 
+  }
