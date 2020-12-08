@@ -301,7 +301,7 @@ li:hover{
     border: 1px solid #ffffff;
     border-radius: 50%;
     position: absolute;
-    transition-duration: 200ms;
+    transition-duration: 120ms;
     transition-timing-function: ease-out;
     animation: cursorAnim .5s infinite alternate;
     pointer-events: none;
