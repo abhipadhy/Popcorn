@@ -28,12 +28,32 @@
 
     <div class="content">
         <div class="watch">watch</div>
-        <iframe src="https://www.youtube.com/embed/zAGVQLHvwOY"></iframe>
+        <iframe src="https://www.youtube.com/embed/zAGVQLHvwOY" ></iframe>
         <div class="net">watch on netflix</div>
         <div class="prime">watch on prime</div>
     </div>
+    <div class="cursor"></div>
 </body>
+
 <script>
+            const cursor = document.querySelector('.cursor');
+
+                document.addEventListener('mousemove', e => {
+                    cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+                })
+
+            document.addEventListener('click', () => {
+                cursor.classList.add("expand");
+
+                setTimeout(() => {
+                    cursor.classList.remove("expand");
+                }, 500)
+            })
+</script>
+
+<script>
+
+
     function clck(){
         var flag = document.querySelector('.more').innerHTML;
         if(flag === 'LESS'){

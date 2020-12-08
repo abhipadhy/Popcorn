@@ -4,6 +4,7 @@ body,html{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    cursor: none;
 }
 
 h1{
@@ -147,6 +148,23 @@ h3 span{
     transition: 0.4s;
 }
 
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(192, 192, 192);
+    font-family: 'Poppins', sans-serif;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(233, 232, 232);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(233, 232, 232);
+    font-family: 'Poppins', sans-serif;
+  }
 .content{
     background-color:#0a0a0a;
     position: absolute;
@@ -275,3 +293,65 @@ li:hover{
   ::-webkit-scrollbar-thumb:hover {
     background: #00A8E1; 
   }
+
+  /* custom cursor */
+  .cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    animation: cursorAnim .5s infinite alternate;
+    pointer-events: none;
+}
+
+.cursor::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: 8px solid #c5c3c3;
+    border-radius: 50%;
+    opacity: .5;
+    top: -8px;
+    left: -8px;
+    animation: cursorAnim2 .5s infinite alternate;
+}
+
+@keyframes cursorAnim {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.7);
+    }
+}
+
+@keyframes cursorAnim2 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.4);
+    }
+}
+
+@keyframes cursorAnim3 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.expand {
+    animation: cursorAnim3 .5s forwards;
+    border: 1px solid red;
+}
