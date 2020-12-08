@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
 </head>
-<body>
+<body onload="trailer()">
     <div class="pic">
         <div class="head">
             <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span><span class="icons8-search"> </span>   
@@ -36,16 +36,30 @@
     <div class="content">
         <div class="watch">watch</div>
         <div class="info">
-            <ul>
-                <label for="movie"></label><li>Joker</li>
-            </ul>
+            
         </div>
-        <iframe src="https://www.youtube.com/embed/zAGVQLHvwOY" ></iframe>
+        <iframe src="https://www.youtube.com/embed/" ></iframe>
         <div class="net">watch on netflix</div>
         <div class="prime">watch on prime</div>
     </div>
     <div class="cursor"></div>
 </body>
+
+<script>
+    function trailer(){
+        var ans = prompt('Enter Movie name');
+        var vid ='';
+        var url = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q='+ans+'%20trailer&videoType=any&key=AIzaSyAN1UTyh_haVm_9Eu9PSQVtOTu7wY5f_FI';
+        fetch(url)
+        .then(response => response.json())
+        .then(function (data){
+            vid = data.items[0].id.videoId;
+            console.log('vid : ' + vid);
+            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+        });
+        
+    }
+</script>
 
 <script>
             const cursor = document.querySelector('.cursor');
@@ -86,20 +100,32 @@
     var content = document.querySelector('.content');
     var image = document.querySelector('.pic');
     var scroll_position = window.scrollY;
-    if (scroll_position >550) {
+
+    if (scroll_position >450) {
       content.style.backgroundColor="#1b1b1b";
       content.style.transition='0.4s';
+      document.querySelector('.des').style.opacity="0.9";
+      document.querySelector('.cast').style.opacity="0.9";
+      document.querySelector('.cast').style.transition='0.4s';
+      document.querySelector('.des').style.transition='0.4s';
     } 
-    else if (scroll_position >50){
+
+    else if (scroll_position >20){
         image.style.backgroundPosition="100% 50%";
         image.style.transition='0.4s';
     }
+
     else {
         image.style.backgroundPosition="50% 50%";
         content.style.backgroundColor="#0a0a0a";
         content.style.transition='0.4s';
         image.style.transition='0.4s';
+        document.querySelector('.des').style.opacity="0";
+        document.querySelector('.des').style.transition='0.4s';
+        document.querySelector('.cast').style.opacity="0";
+        document.querySelector('.cast').style.transition='0.4s';
     }
+    
   });
 </script>
 </html>

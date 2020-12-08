@@ -201,14 +201,17 @@ h3 span{
 }
 
 .des{
+    opacity: 0;
     color: #d7d8d7;
     text-align: justify;
     margin-top:3%;
     margin-left: 7%;
     margin-right: 7%;
+    transition: 0.3s;
 }
 
 .cast{
+    opacity: 0;
     margin-left:7%;
 }
 .lead{
