@@ -15,10 +15,15 @@
 
         <h2>2 OCTOBER 2019</h2>
         <h1>JOKER</h1>
+        <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
         <div class="foot1" onclick="clck()">
             <span class="foote">read &nbsp;</span><span class="more">more</span>
         </div>
-        
+        <ul>
+            <li>HOME &nbsp;&nbsp;</li>
+            <li>GENRE &nbsp;&nbsp;</li>
+            <li>TRENDING</li>
+        </ul>
     </div>
     <div class="pic1"></div>
 
@@ -31,8 +36,39 @@
 </body>
 <script>
     function clck(){
-        document.querySelector('.pic').style.display="none";
-        document.querySelector('.pic1').style.display="block";
+        var flag = document.querySelector('.more').innerHTML;
+        if(flag === 'LESS'){
+            document.querySelector('.pic1').style.display="none";
+            document.querySelector('.pic1').style.transition="0.4s";
+            document.querySelector('.more').innerHTML='MORE';
+        }
+        else{
+            document.querySelector('.pic1').style.display="block";
+            document.querySelector('.pic1').style.transition="0.4s";
+            document.querySelector('.more').innerHTML='LESS';
+        }
+        
     }
+
+   
+    document.addEventListener('scroll', () => {
+    var content = document.querySelector('.content');
+    var image = document.querySelector('.pic');
+    var scroll_position = window.scrollY;
+    if (scroll_position >550) {
+      content.style.backgroundColor="#1b1b1b";
+      content.style.transition='0.4s';
+    } 
+    else if (scroll_position >50){
+        image.style.backgroundPosition="100% 50%";
+        image.style.transition='0.4s';
+    }
+    else {
+        image.style.backgroundPosition="50% 50%";
+        content.style.backgroundColor="#0a0a0a";
+        content.style.transition='0.4s';
+        image.style.transition='0.4s';
+    }
+  });
 </script>
 </html>

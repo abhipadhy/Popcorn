@@ -16,6 +16,15 @@ h1{
    
 }
 
+
+
+#cont{
+    display: none;
+    text-align: center;
+    color: #9ba7ad;
+    margin-left: 7%;
+    margin-right: 7%;
+}
 h2{
     color: #F0EBEB;
     font-size: 15px;
@@ -36,28 +45,33 @@ h2{
 }
 
 .foot1{
-    margin-left: 7%;
-    margin-top:23%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    width: 90%;
+    position: absolute;
+    bottom:5%;
+    left: 7%;
+    width: 30%;
     height: 3%;
 }
-
 .foot1:hover{
+    color: #b6362d;
     cursor: pointer;
     transition: 0.4s;
 }
+
+.foot1:hover .foote{
+    color: #b6362d;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+
 .more{
     color: #d7d8d7;
     font-weight: 200;
     text-transform: uppercase;
+    transition: 0.4s;
 }
 
-.more:hover{
-    background-color: #b6362d;
-}
+
 h3{
     color: #F0EBEB;
     font-weight: 400;
@@ -74,11 +88,10 @@ h3{
     color: #d7d8d7;
     font-weight: 600;
     text-transform: uppercase;
+    transition: 0.4s;
 }
 
-.foote:hover{
-    background-color: #b6362d;
-}
+
 h3 span{
     font-weight: 500;
 }
@@ -110,9 +123,9 @@ h3 span{
 
 .pic1{
     display: none;
-    background-color: #d7d8d7;
+    background-color: #0a0a0a;
     position: absolute;
-    top: 0%;
+    top: 100%;
     left: 0%;
     width: 70%;
     height: 100%;
@@ -128,6 +141,8 @@ h3 span{
     width: 30%;
     height: 100%;
 }
+
+
 
 .watch{
     text-transform: uppercase;
@@ -206,6 +221,25 @@ iframe{
     transition: 0.4s;
 }
 
+ul{
+    list-style: none;
+    position: absolute;
+    bottom:2%;
+    right: 7%;
+}
+
+li{
+    color: #F0EBEB;
+    float: left;
+    font-weight: 300;
+    transition: 0.4s;
+}
+
+li:hover{
+    color: #b6362d;
+    transition: 0.4s;
+    cursor: pointer;
+}
 
 /* width */
 ::-webkit-scrollbar {
