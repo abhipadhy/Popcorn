@@ -175,7 +175,13 @@ h3 span{
     height: 100%;
 }
 
-
+.info{
+    text-transform: uppercase;
+    color: #d7d8d7;
+    position: absolute;
+    top:10%;
+    margin:0%;
+}
 
 .watch{
     text-transform: uppercase;
@@ -194,6 +200,30 @@ h3 span{
     transition: 0.4s;
 }
 
+.des{
+    color: #d7d8d7;
+    text-align: justify;
+    margin-top:3%;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.cast{
+    margin-left:7%;
+}
+.lead{
+    color: #b6362d;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.cast1{
+    color: #d7d8d7;
+    font-weight: 200;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
 
 iframe{
     border: none;
