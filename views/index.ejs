@@ -36,7 +36,10 @@
     <div class="content">
         <div class="watch">watch</div>
         <div class="info">
-            
+            <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" >joker</span><br>
+            <span class="tit">director : &nbsp;</span><span style="font-weight: 200;font-size: 80%;">todd philips</span><br>
+            <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;">2nd october 2019</span><br>
+            <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;">8.5 / 10</span><br>
         </div>
         <iframe src="https://www.youtube.com/embed/" ></iframe>
         <div class="net">watch on netflix</div>
@@ -47,15 +50,24 @@
 
 <script>
     function trailer(){
-        var ans = prompt('Enter Movie name');
+        
         var vid ='';
+        var imga='';
         var url = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q='+ans+'%20trailer&videoType=any&key=AIzaSyAN1UTyh_haVm_9Eu9PSQVtOTu7wY5f_FI';
         fetch(url)
         .then(response => response.json())
         .then(function (data){
             vid = data.items[0].id.videoId;
-            console.log('vid : ' + vid);
-            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+            if (vid ===''){
+                document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+            }
+            else{
+                console.log('vid : ' + vid);
+                document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+            }
+            
+         
+            
         });
         
     }
