@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
 </head>
-<body onload="trailer()">
+<body onload="data()">
     <div class="pic">
         <div class="head">
             <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span><span class="icons8-search"> </span>   
@@ -49,7 +49,7 @@
 </body>
 
 <script>
-    function trailer(){
+    function data(){
         var ans = prompt();
         var vid ='';
         var imga='';
@@ -69,6 +69,17 @@
          
             
         });
+       
+        var url1 ='https://customsearch.googleapis.com/customsearch/v1?cx=0f9e2df3020e49a58&imgSize=LARGE&imgType=imgTypeUndefined&num=1&q='+ans+'&searchType=image&key=AIzaSyC3Bg9i3odWhlqKCHEu2Q_2-w6Qh9NLj3E';
+        fetch(url1)
+        .then(response => response.json())
+        .then(function (data){
+            iid  = data.items[0].link;
+            console.log(iid);
+            document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
+            
+        });
+
 
                     var myHeaders = new Headers();
             myHeaders.append("x-rapidapi-key", "18fbb309efmshfe01f93d20cb9c4p127560jsn4f265c06e2ff");
