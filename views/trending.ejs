@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
 </head>
-<body onload="data()">
-    <div class="pic">
+<body onmousewheel="data()">
+    <div class="pic" >
         <div class="head">
-            <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span><span class="icons8-search" > </span>   
+            <span class="heading">trending &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span><span class="icons8-search" > </span>   
             <div ></div>
         </div>
 
-        <h2 id="rdate" style="text-transform: uppercase;">2 OCTOBER 2019</h2>
-        <h1 id="mname" style="text-transform: uppercase;">JOKER</h1>
+        <h2 id="rdate" style="text-transform: uppercase;">scroll to reveal top 10 trending </h2>
+        <h1 id="mname" style="text-transform: uppercase;">trending</h1>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
-        <div class="foot1" onclick="clck()">
+        <div class="foot1" onclick="clck()" >
             <span class="foote">read &nbsp;</span><span class="more">more</span>
         </div>
         <ul>
             <li>HOME &nbsp;&nbsp;</li>
             <li>GENRE &nbsp;&nbsp;</li>
-            <li>TRENDING</li>
+            <li style="color: #b6362d;">TRENDING</li>
         </ul>
     </div>
     <div class="pic1">
@@ -38,13 +38,14 @@
     </div>
 
     <div class="content">
-        <div class="watch">watch</div>
-        <div class="info">
+        <div class="watch">trending</div>
+        <div class="info" style="display: none;">
             <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" >joker</span><br>
             <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime">todd philips</span><br>
             <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="release">2nd october 2019</span><br>
             <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="rating">8.5 / 10</span><br>
         </div>
+        <p class="pcon">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius fugiat magni facere quod exercitationem voluptas culpa optio temporibus. Minima laboriosam incidunt neque officia consequuntur alias explicabo quibusdam nisi nesciunt corrupti?</p>
         <iframe src="https://www.youtube.com/embed/" ></iframe>
         <div class="net">watch on netflix</div>
         <div class="prime">watch on prime</div>
@@ -54,32 +55,47 @@
 
 <script>
     function data(){
-        var ans=prompt();
-        var vid ='';
-        var imga='';
-        var url = 'https://yts.mx/api/v2/list_movies.json?query_term='+ans;
-        fetch(url)
-        .then(response => response.json())
-        .then(function (data){
-            vid = data.data.movies[0].yt_trailer_code;
-            if (vid ===''){
-                document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
-            }
-            else{
-                console.log('vid : ' + vid);
-                iid  = data.data.movies[0].large_cover_image;
-                console.log(iid);
-                document.getElementById('des').innerText=data.data.movies[0].description_full;
-                document.getElementById('movie').innerText=data.data.movies[0].title;
-                document.getElementById('mname').innerText=data.data.movies[0].title;
-                document.getElementsByClassName('heading')[0].innerText=data.data.movies[0].title;
-                document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
-                document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
-            }
-            
-         
-            
-        });
+        var flag= '';
+     
+        flag = document.querySelector('.more').innerText;
+        console.log('flag' + flag);
+        if(flag ==='LESS'){
+            return;
+        } 
+        else if(flag ==='MORE'){
+        var array = ['vertigo','inception','vanilla sky'];
+        var ans=0;
+
+        for(ans=0;ans<array.length;ans++){
+                
+                    var vid ='';
+                    var imga='';
+                    var url = 'https://yts.mx/api/v2/list_movies.json?query_term='+array[ans];
+                    fetch(url)
+                    .then(response => response.json())
+                    .then(function (data){
+                        vid = data.data.movies[0].yt_trailer_code;
+                        if (vid ===''){
+                            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+                        }
+                        else{
+                            console.log('vid : ' + vid);
+                            iid  = data.data.movies[0].large_cover_image;
+                            console.log(iid);
+                            document.getElementById('des').innerText=data.data.movies[0].description_full;
+                            document.getElementById('movie').innerText=data.data.movies[0].title;
+                            document.getElementById('mname').innerText=data.data.movies[0].title;
+                            document.getElementsByClassName('heading')[0].innerText=data.data.movies[0].title;
+                            document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
+                            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+                        }
+                        
+                    
+                        
+                    });
+                
+        }
+        
        
         // var url1 ='https://customsearch.googleapis.com/customsearch/v1?cx=0f9e2df3020e49a58&imgSize=large&imgType=photo&num=1&q='+ans+'&searchType=image&key=AIzaSyC3Bg9i3odWhlqKCHEu2Q_2-w6Qh9NLj3E';
         // fetch(url1)
@@ -148,6 +164,7 @@
                         document.querySelector('.prime').style.display='none';
                         document.querySelector('.brand').style.backgroundImage="url('/assets/netflix.png')";
                     }
+                }
                 }
 </script>
 
