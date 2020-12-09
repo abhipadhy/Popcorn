@@ -8,11 +8,12 @@
 <body onload="data()">
     <div class="pic">
         <div class="head">
-            <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span><span class="icons8-search"> </span>   
+            <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span><span class="icons8-search" > </span>   
+            <div ></div>
         </div>
 
-        <h2>2 OCTOBER 2019</h2>
-        <h1>JOKER</h1>
+        <h2 id="rdate" style="text-transform: uppercase;">2 OCTOBER 2019</h2>
+        <h1 id="mname" style="text-transform: uppercase;">JOKER</h1>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
         <div class="foot1" onclick="clck()">
@@ -50,7 +51,7 @@
 
 <script>
     function data(){
-        var ans = prompt();
+        var ans='joker';
         var vid ='';
         var imga='';
         var url = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q='+ans+'%20trailer&videoType=any&key=AIzaSyAN1UTyh_haVm_9Eu9PSQVtOTu7wY5f_FI';
@@ -70,7 +71,7 @@
             
         });
        
-        var url1 ='https://customsearch.googleapis.com/customsearch/v1?cx=0f9e2df3020e49a58&imgSize=LARGE&imgType=imgTypeUndefined&num=1&q='+ans+'&searchType=image&key=AIzaSyC3Bg9i3odWhlqKCHEu2Q_2-w6Qh9NLj3E';
+        var url1 ='https://customsearch.googleapis.com/customsearch/v1?cx=0f9e2df3020e49a58&imgSize=large&imgType=photo&num=1&q='+ans+'&searchType=image&key=AIzaSyC3Bg9i3odWhlqKCHEu2Q_2-w6Qh9NLj3E';
         fetch(url1)
         .then(response => response.json())
         .then(function (data){
@@ -110,8 +111,11 @@
                         .then(response => response.json())
                         .then(result => {
                             document.getElementById('movie').innerText=result.title;
+                            document.getElementById('mname').innerText=result.title;
+                            document.getElementsByClassName('heading')[0].innerText=result.title;
                             document.getElementById('runtime').innerText=result.length;
                             document.getElementById('release').innerText=result.year;
+                            document.getElementById('rdate').innerText=result.year;
                             document.getElementById('rating').innerText=result.rating +" / 10";
                             document.getElementById('des').innerText=result.plot;
                             
@@ -121,6 +125,19 @@
              )
             .catch(error => console.log('error', error));
                     
+
+                    var platform ='netflix';
+                    if (platform === 'prime' || platform === 'Prime' || platform === 'PRIME'){
+                        document.querySelector('.net').style.display='none';
+                        document.querySelector('.prime').style.display='block';
+                        document.querySelector('.brand').style.backgroundImage="url('/assets/prime.png')";
+                       
+                    }
+                    else{
+                        document.querySelector('.net').style.display='block';
+                        document.querySelector('.prime').style.display='none';
+                        document.querySelector('.brand').style.backgroundImage="url('/assets/netflix.png')";
+                    }
                 }
 </script>
 
