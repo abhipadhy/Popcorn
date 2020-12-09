@@ -25,7 +25,7 @@
         </ul>
     </div>
     <div class="pic1">
-        <p class="des">Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him.
+        <p class="des" id="des">Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him.
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis laboriosam consequuntur similique deleniti iusto quasi sint placeat suscipit enim molestias tempora aliquam, obcaecati incidunt explicabo non cum delectus reiciendis ex.
         </p>
         <div class="cast" >
@@ -37,7 +37,7 @@
         <div class="watch">watch</div>
         <div class="info">
             <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" >joker</span><br>
-            <span class="tit">director : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="director">todd philips</span><br>
+            <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime">todd philips</span><br>
             <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="release">2nd october 2019</span><br>
             <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="rating">8.5 / 10</span><br>
         </div>
@@ -69,8 +69,48 @@
          
             
         });
-        
-    }
+
+                    var myHeaders = new Headers();
+            myHeaders.append("x-rapidapi-key", "18fbb309efmshfe01f93d20cb9c4p127560jsn4f265c06e2ff");
+            myHeaders.append("x-rapidapi-host", "imdb-internet-movie-database-unofficial.p.rapidapi.com");
+
+            var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+            };
+
+            fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/"+ans, requestOptions)
+            .then(response => response.json())
+            .then(
+             function(res){
+                 var id=res.titles[0].id;
+                                        var myHeaders = new Headers();
+                        myHeaders.append("x-rapidapi-key", "18fbb309efmshfe01f93d20cb9c4p127560jsn4f265c06e2ff");
+                        myHeaders.append("x-rapidapi-host", "imdb-internet-movie-database-unofficial.p.rapidapi.com");
+
+                        var requestOptions = {
+                        method: 'GET',
+                        headers: myHeaders,
+                        redirect: 'follow'
+                        };
+
+                        fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/"+id, requestOptions)
+                        .then(response => response.json())
+                        .then(result => {
+                            document.getElementById('movie').innerText=result.title;
+                            document.getElementById('runtime').innerText=result.length;
+                            document.getElementById('release').innerText=result.year;
+                            document.getElementById('rating').innerText=result.rating +" / 10";
+                            document.getElementById('des').innerText=result.plot;
+                            
+                        })
+                        .catch(error => console.log('error', error));
+             }
+             )
+            .catch(error => console.log('error', error));
+                    
+                }
 </script>
 
 <script>
