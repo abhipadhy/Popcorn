@@ -22,7 +22,7 @@
         <ul>
             <li>HOME &nbsp;&nbsp;</li>
             <li>GENRE &nbsp;&nbsp;</li>
-            <li>TRENDING</li>
+            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING</li></a>
         </ul>
     </div>
     <div class="pic1">
@@ -38,6 +38,7 @@
     </div>
 
     <div class="content">
+        <a href="/" id='logo'><img src="/assets/logo.png" alt=""></a>
         <div class="watch">watch</div>
         <div class="info">
             <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" >joker</span><br>
@@ -54,7 +55,7 @@
 
 <script>
     function data(){
-        var ans=prompt();
+        var ans='';
         var vid ='';
         var imga='';
         var url = 'https://yts.mx/api/v2/list_movies.json?query_term='+ans;

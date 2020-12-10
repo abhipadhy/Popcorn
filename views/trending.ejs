@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
 </head>
-<body onmousewheel="data()">
+<body onmousewheel="data()" onkeydown="data()">
     <div class="pic" >
         <div class="head">
-            <span class="heading">trending &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span><span class="icons8-search" > </span>   
+            <span class="heading">trending &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span>
             <div ></div>
         </div>
-
+        
         <h2 id="rdate" style="text-transform: uppercase;">scroll to reveal top 10 trending </h2>
         <h1 id="mname" style="text-transform: uppercase;">trending</h1>
+        <p class="trendnumber">1</p>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
         <div class="foot1" onclick="clck()" >
@@ -38,6 +39,7 @@
     </div>
 
     <div class="content">
+        <a href="/" id='logo'><img src="/assets/logo.png" alt=""></a>
         <div class="watch">trending</div>
         <div class="info" style="display: none;">
             <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" >joker</span><br>
@@ -45,7 +47,7 @@
             <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="release">2nd october 2019</span><br>
             <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="rating">8.5 / 10</span><br>
         </div>
-        <p class="pcon">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius fugiat magni facere quod exercitationem voluptas culpa optio temporibus. Minima laboriosam incidunt neque officia consequuntur alias explicabo quibusdam nisi nesciunt corrupti?</p>
+        <p class="pcon">Discover the top trending movies & tv shows of this week</p>
         <iframe src="https://www.youtube.com/embed/" ></iframe>
         <div class="net">watch on netflix</div>
         <div class="prime">watch on prime</div>
@@ -54,23 +56,30 @@
 </body>
 
 <script>
+    document.querySelector('body').onkeydown=function (e){
+        if(e.keyCode === 39 || e.keyCode === 40){
+            data();
+        }
+    };
     function data(){
         var flag= '';
-     
+        
         flag = document.querySelector('.more').innerText;
         console.log('flag' + flag);
         if(flag ==='LESS'){
             return;
         } 
         else if(flag ==='MORE'){
-        var array = ['vertigo','inception','vanilla sky'];
+        var array = ['vertigo','inception','vanilla sky','interstellar','the exorcist','the mist','catch me if you can '];
         var ans=0;
-
-        for(ans=0;ans<array.length;ans++){
+        document.querySelector('.trendnumber').style.color="ffffff";
+        document.querySelector('.trendnumber').style.backgroundColor="ffffff";
+        ans= document.querySelector('.trendnumber').innerText;
+        console.log(ans);
                 
                     var vid ='';
                     var imga='';
-                    var url = 'https://yts.mx/api/v2/list_movies.json?query_term='+array[ans];
+                    var url = 'https://yts.mx/api/v2/list_movies.json?query_term='+array[ans-1];
                     fetch(url)
                     .then(response => response.json())
                     .then(function (data){
@@ -93,8 +102,21 @@
                     
                         
                     });
+                    
+                    if(ans >= array.length){
+                        document.querySelector('.trendnumber').innerText=Number('1') ;
+                    }
+                    else{
+                        document.querySelector('.trendnumber').innerText=Number(ans)+ 1 ;
+                        
+                    }
+                        
+                  
+                    
                 
         }
+
+
         
        
         // var url1 ='https://customsearch.googleapis.com/customsearch/v1?cx=0f9e2df3020e49a58&imgSize=large&imgType=photo&num=1&q='+ans+'&searchType=image&key=AIzaSyC3Bg9i3odWhlqKCHEu2Q_2-w6Qh9NLj3E';
@@ -165,7 +187,7 @@
                         document.querySelector('.brand').style.backgroundImage="url('/assets/netflix.png')";
                     }
                 }
-                }
+                
 </script>
 
 <script>

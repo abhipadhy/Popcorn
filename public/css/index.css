@@ -52,6 +52,18 @@ h2{
     width: 30%;
     height: 3%;
 }
+#logo{
+   position: absolute;
+   top: 5%;
+   left: 7%;
+}
+
+
+img{
+    width: 25%;
+    height: 10%;
+    object-fit: cover;
+}
 .foot1:hover{
     color: #b6362d;
     cursor: pointer;
@@ -64,6 +76,29 @@ h2{
     transition: 0.4s;
 }
 
+.pcon{
+    position: absolute;
+    left: 9%;
+    top: 20%;
+    right:10%;
+    font-size:90% ;
+    text-align: justify;
+    color: #d7d8d7;
+}
+
+.trendnumber{
+
+    width: 5%;
+    height: fit-content;
+    border: 2%;
+    margin-left:7% ;
+    margin-top:20%;
+    border-style: solid;
+    border-color: transparent;
+    padding: 0.3%;
+    text-align: center; 
+    color: transparent;
+}
 .icons8-search { 
     width: 24px;
     height: 24px;
