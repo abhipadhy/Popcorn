@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/search.css">
 </head>
 <body onload="data()">
     <div class="pic">
         <div class="head">
-            <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span><span class="icons8-search" > </span>   
+            <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span>  
             <div ></div>
         </div>
-
+        <form class="squery">
+            <input type="text" name="query" placeholder="Search for movie or tv-shows here.">
+            <button>SEARCH</button>
+        </form>
         <h2 id="rdate" style="text-transform: uppercase;">2 OCTOBER 2019</h2>
         <h1 id="mname" style="text-transform: uppercase;">JOKER</h1>
         
@@ -20,9 +23,10 @@
             <span class="foote">read &nbsp;</span><span class="more">more</span>
         </div>
         <ul>
-            <li>HOME &nbsp;&nbsp;</li>
+            <a href="/" style="text-decoration: none; color: #d7d8d7;"><li>HOME &nbsp;&nbsp;</li></a>
             <li>GENRE &nbsp;&nbsp;</li>
-            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING</li></a>
+            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
+            <a href="/search" ><li style="color: #d6362d;">SEARCH</li></a>
         </ul>
     </div>
     <div class="pic1">
@@ -42,7 +46,7 @@
 
     <div class="content">
         <a href="/" id='logo'><img src="/assets/logo.png" alt=""></a>
-        <div class="watch">watch</div>
+        <div class="watch">search</div>
         <div class="info">
             <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" >joker</span><br>
             <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime">123 mins</span><br>

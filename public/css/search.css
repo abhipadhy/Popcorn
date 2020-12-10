@@ -99,6 +99,43 @@ img{
     text-align: center; 
     color: transparent;
 }
+.squery {
+    position:absolute;
+    top: 5%;
+    width: 27%;
+    height:fit-content;
+    left: 70%;
+}
+
+input{
+    background-color: #0a0a0a;
+    padding: 4%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    width:90%;
+    color: white;
+    font-size: 80%;
+    border: 0.5px solid #0a0a0a;
+    outline:none;
+}
+button{
+    background-color: #d6362d;
+    border:none;
+    margin-top:5%;
+    color: #d7d8d7;
+    font-weight:700;
+    padding: 3%;
+    width:97%;
+    transition: 0.4s;
+}
+
+button:hover{
+    background-color: #00A8E1;
+    color:#ffffff;
+    transition: 0.4s;
+    cursor:pointer;
+}
+
 .icons8-search { 
     width: 24px;
     height: 24px;

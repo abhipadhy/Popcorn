@@ -17,13 +17,14 @@
         <p class="trendnumber">1</p>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
-        <div class="foot1" onclick="clck()" display="none">
+        <div class="foot1" onclick="clck()" style="opacity:0.01">
             <span class="foote">read &nbsp;</span><span class="more">more</span>
         </div>
         <ul>
             <a href="/" style="text-decoration: none;"><li>HOME &nbsp;&nbsp;</li></a>
             <li>GENRE &nbsp;&nbsp;</li>
-            <li style="color: #b6362d;">TRENDING</li>
+            <a href="/trending"><li style="color: #b6362d;">TRENDING &nbsp;&nbsp;</li></a>
+            <a href="/search"><li >SEARCH</li></a>
         </ul>
         
             <div class="circle"></div>
@@ -53,6 +54,7 @@
             <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="rating"></span><br>
         </div>
         <p class="pcon">Discover the top trending movies & tv shows of this week</p>
+        
         <iframe src="https://www.youtube.com/embed/" style="display: none;"></iframe>
         <div class="net" style="display: none;">watch on netflix</div>
         <div class="prime">watch on prime</div>
@@ -74,10 +76,11 @@
             return;
         } 
         else if(flag ==='MORE'){
+        
         var array = ['vertigo','inception','vanilla sky','interstellar','the exorcist','the mist','catch me if you can ','holiday','no strings attached','inferno'];
         var ans=0;
         document.querySelector('.trendnumber').style.color="ffffff";
-        document.querySelector('.foot1').style.display='block';
+        document.querySelector('.foot1').style.opacity=1;
         document.querySelector('.pcon').style.display='none';
         
         

@@ -8,7 +8,7 @@
 <body >
     <div class="pic">
         
-
+        
         <div class="logo">
             <div class="line2"></div>
         </div>
@@ -16,11 +16,17 @@
         <div class="op">
             <p>abhi x divesh</p>
         </div>
+        <form class="squery">
+            <input type="text" name="query" placeholder="Search for movie or tv-shows here.">
+            <button>SEARCH</button>
+        </form>
+
         
         <ul>
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li style="color: #b6362d;">HOME &nbsp;&nbsp;</li></a>
             <li>GENRE &nbsp;&nbsp;</li>
-            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING</li></a>
+            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
+            <a href="/search"><li id="search">SEARCH</li></a>
         </ul>
     </div>
    
@@ -41,5 +47,7 @@
             cursor.classList.remove("expand");
         }, 500)
     })
+
+   
 </script>
 
