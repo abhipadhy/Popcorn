@@ -124,6 +124,7 @@ button{
     margin-top:5%;
     color: #d7d8d7;
     font-weight:700;
+    outline: none;
     padding: 3%;
     width:97%;
     transition: 0.4s;

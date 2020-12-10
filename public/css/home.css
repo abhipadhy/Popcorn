@@ -17,7 +17,14 @@ body,html{
     transition: 0.4s;
     
 }
-
+.left{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background: linear-gradient(269.57deg, #0A0A0A 0.34%, rgba(10, 10, 10, 0.97) 10.89%, rgba(10, 10, 10, 0.95) 18.47%, rgba(10, 10, 10, 0.91) 39.48%, rgba(10, 10, 10, 0.6) 58.63%, rgba(10, 10, 10, 0.46) 72.31%, rgba(10, 10, 10, 0.230199) 82.65%, rgba(10, 10, 10, 0) 99.61%),url('/assets/home.png') ;
+    width: 35%;
+    height: 100%;
+}
 .squery {
     position:absolute;
     top: 5%;
@@ -152,6 +159,7 @@ ul{
         opacity: 1;
     }
 }
+
 
 
 

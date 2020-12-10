@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/search.css">
 </head>
-<body onload="data()">
+<body >
     <div class="pic">
         <div class="head">
             <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span>  
             <div ></div>
         </div>
-        <form class="squery">
+        <form class="squery" >
             <input type="text" name="query" placeholder="Search for movie or tv-shows here.">
-            <button>SEARCH</button>
+            <button onclick="data()">SEARCH</button>
         </form>
         <h2 id="rdate" style="text-transform: uppercase;">2 OCTOBER 2019</h2>
         <h1 id="mname" style="text-transform: uppercase;">JOKER</h1>
@@ -63,7 +63,8 @@
 
 <script>
     function data(){
-        var ans=prompt();
+        var ans=document.querySelector('.input').innerHTML;
+        conosle.log(ans);
         var vid ='';
         var imga='';
         var url1 = 'https://yts.mx/api/v2/list_movies.json?query_term='+ans;
