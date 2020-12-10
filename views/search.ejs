@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/search.css">
 </head>
-<body onload="data()">
+<body >
     <div class="pic">
         <div class="head">
             <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span>  
             <div ></div>
         </div>
-        <form class="squery">
-            <input type="text" name="query" placeholder="Search for movie or tv-shows here.">
-            <button>SEARCH</button>
-        </form>
+        <div class="squery">
+            <input type="text" id="search" name="query" placeholder="Search for movie or tv-shows here.">
+            <button onclick="search()">SEARCH</button>
+        </div>
         <h2 id="rdate" style="text-transform: uppercase;">2 OCTOBER 2019</h2>
         <h1 id="mname" style="text-transform: uppercase;">JOKER</h1>
         
@@ -62,8 +62,14 @@
 </body>
 
 <script>
-    function data(){
-        var ans=prompt();
+    function search(){
+        if(document.getElementById('search').value)
+        {
+            data(document.getElementById('search').value);
+        }
+    }
+    function data(ans){
+
         var vid ='';
         var imga='';
         var url1 = 'https://yts.mx/api/v2/list_movies.json?query_term='+ans;
@@ -146,6 +152,7 @@
                                 fetch(`https://api.themoviedb.org/3/tv/${res.results[0].id}/credits?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US`)
                                 .then(response=>response.json())
                                 .then(function(t){
+                                    console.log(res.results[0].id);
                                     for(let i=1;i<=4;i++)
                                     {
                                         document.getElementById(`name${i}`).innerText=`${t.cast[i-1].name} AS ${t.cast[i-1].character}`;
