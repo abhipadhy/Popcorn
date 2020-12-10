@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body >
+    <div class="pic">
+        
+
+        <div class="logo"></div>
+        
+        <ul>
+            <a href="/" style="text-decoration: none; color: #d7d8d7;"><li>HOME &nbsp;&nbsp;</li></a>
+            <li>GENRE &nbsp;&nbsp;</li>
+            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING</li></a>
+        </ul>
+    </div>
+   
+    <div class="content">
+       
+    </div>
+    <div class="cursor"></div>
+</body>
+
+<script>
+    const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+        })
+
+    document.addEventListener('click', () => {
+        cursor.classList.add("expand");
+
+        setTimeout(() => {
+            cursor.classList.remove("expand");
+        }, 500)
+    })
+</script>

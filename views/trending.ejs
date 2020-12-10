@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/trending.css">
 </head>
 <body onmousewheel="data()" onkeydown="data()">
     <div class="pic" >
@@ -17,7 +17,7 @@
         <p class="trendnumber">1</p>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
-        <div class="foot1" onclick="clck()" >
+        <div class="foot1" onclick="clck()" display="none">
             <span class="foote">read &nbsp;</span><span class="more">more</span>
         </div>
         <ul>
@@ -42,14 +42,14 @@
         <a href="/" id='logo'><img src="/assets/logo.png" alt=""></a>
         <div class="watch">trending</div>
         <div class="info" style="display: none;">
-            <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" >joker</span><br>
-            <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime">todd philips</span><br>
-            <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="release">2nd october 2019</span><br>
-            <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="rating">8.5 / 10</span><br>
+            <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" ></span><br>
+            <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime"></span><br>
+            <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="release"></span><br>
+            <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="rating"></span><br>
         </div>
         <p class="pcon">Discover the top trending movies & tv shows of this week</p>
-        <iframe src="https://www.youtube.com/embed/" ></iframe>
-        <div class="net">watch on netflix</div>
+        <iframe src="https://www.youtube.com/embed/" style="display: none;"></iframe>
+        <div class="net" style="display: none;">watch on netflix</div>
         <div class="prime">watch on prime</div>
     </div>
     <div class="cursor"></div>
@@ -63,17 +63,22 @@
     };
     function data(){
         var flag= '';
-        
         flag = document.querySelector('.more').innerText;
         console.log('flag' + flag);
         if(flag ==='LESS'){
             return;
         } 
         else if(flag ==='MORE'){
-        var array = ['vertigo','inception','vanilla sky','interstellar','the exorcist','the mist','catch me if you can '];
+        var array = ['vertigo','inception','vanilla sky','interstellar','the exorcist','the mist','catch me if you can ','holiday','no strings attached','inferno'];
         var ans=0;
         document.querySelector('.trendnumber').style.color="ffffff";
-        document.querySelector('.trendnumber').style.backgroundColor="ffffff";
+        document.querySelector('.foot1').style.display='block';
+        document.querySelector('.pcon').style.display='none';
+        
+        
+        document.querySelector('.trendnumber').style.borderColor="ffffff";
+        document.querySelector('iframe').style.display="block";
+        document.querySelector('.net').style.display="block";
         ans= document.querySelector('.trendnumber').innerText;
         console.log(ans);
                 
@@ -98,7 +103,7 @@
                             document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
                             document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
                         }
-                        
+                        document.querySelector('.info').style.display='block';
                     
                         
                     });
