@@ -21,9 +21,11 @@ body,html{
     position: absolute;
     top: 0%;
     left: 0%;
-    background: linear-gradient(269.57deg, #0A0A0A 0.34%, rgba(10, 10, 10, 0.97) 10.89%, rgba(10, 10, 10, 0.95) 18.47%, rgba(10, 10, 10, 0.91) 39.48%, rgba(10, 10, 10, 0.6) 58.63%, rgba(10, 10, 10, 0.46) 72.31%, rgba(10, 10, 10, 0.230199) 82.65%, rgba(10, 10, 10, 0) 99.61%),url('/assets/home.png') ;
+    background: linear-gradient(269.57deg, #0A0A0A 0.34%, rgba(10, 10, 10, 0.97) 10.89%, rgba(10, 10, 10, 0.95) 18.47%, rgba(10, 10, 10, 0.91) 39.48%, rgba(10, 10, 10, 0.6) 58.63%, rgba(10, 10, 10, 0.46) 72.31%, rgba(10, 10, 10, 0.230199) 82.65%, rgba(10, 10, 10, 0) 99.61%),url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632565/home_gacy0o.png') ;
     width: 35%;
+    opacity: 0.8;
     height: 100%;
+    animation: left 10s ease;
 }
 .squery {
     position:absolute;
@@ -83,7 +85,7 @@ button:hover{
     height: 40%;
     background-size:cover ;
     background-position:50% 50% ;
-    background-image:url(/assets/logo.png) ;
+    background-image:url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632562/logo_ieomoh.png') ;
     position: absolute;
     left: 30%;
     top: 25%;
@@ -160,6 +162,14 @@ ul{
     }
 }
 
+@keyframes left{
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 0.8;
+    }
+}
 
 
 

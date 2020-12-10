@@ -33,3 +33,7 @@ app.get('/trending',function(req,res){
 app.get('/',function(req,res){
     res.render("home.ejs");
 });
+
+app.get('/404',function(req,res){
+    res.render("404.ejs");
+});

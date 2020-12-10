@@ -199,7 +199,7 @@ h3 span{
     height: 57%;
 }
 .pic{
-    background-image: linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(/assets/trending.png);
+    background-image: linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632567/trending_dil65w.png');
     background-position: 50% 50%;
     background-repeat: none;
     background-size: cover;
