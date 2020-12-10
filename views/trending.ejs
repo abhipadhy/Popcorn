@@ -88,20 +88,60 @@
                             document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
                         }
                         else{
-                            console.log('vid : ' + vid);
-                            iid  = data.data.movies[0].large_cover_image;
-                            console.log(iid);
-                            document.getElementById('des').innerText=data.data.movies[0].description_full;
-                            document.getElementById('movie').innerText=data.data.movies[0].title;
-                            document.getElementById('mname').innerText=data.data.movies[0].title;
-                            document.getElementsByClassName('heading')[0].innerText=data.data.movies[0].title;
-                            document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
+                            // console.log('vid : ' + vid);
+                            // iid  = data.data.movies[0].large_cover_image;
+                            // console.log(iid);
+                            // document.getElementById('des').innerText=data.data.movies[0].description_full;
+                            // document.getElementById('movie').innerText=data.data.movies[0].title;
+                            // document.getElementById('mname').innerText=data.data.movies[0].title;
+                            // document.getElementsByClassName('heading')[0].innerText=data.data.movies[0].title;
+                            // document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
                             document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
                         }
+
+
                         
                     
                         
                     });
+
+                    fetch(`https://api.themoviedb.org/3/search/multi?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=${array[ans-1]}&page=1&include_adult=false`)
+            .then(response => response.json())
+            .then(
+             function(res){
+               
+                    
+                            iid  = `https://image.tmdb.org/t/p/original${res.results[0].backdrop_path}`;
+                            console.log(iid);
+                            document.getElementById('des').innerText=res.results[0].overview;
+                            if(res.results[0].media_type.localeCompare('movie')===0){
+                                
+                            document.getElementById('movie').innerText=res.results[0].title;
+                            document.getElementById('mname').innerText=res.results[0].title;
+                            document.getElementsByClassName('heading')[0].innerText=res.results[0].title;
+                            // document.getElementById('release').innerText=res.results[0].release_date;
+                            // document.getElementById('rdate').innerText=res.results[0].release_date;
+                            }
+                            else{
+                                document.getElementById('movie').innerText=res.results[0].name;
+                            document.getElementById('mname').innerText=res.results[0].name;
+                            document.getElementsByClassName('heading')[0].innerText=res.results[0].name;
+                            // document.getElementById('release').innerText=res.results[0].first_air_date;
+                            // document.getElementById('rdate').innerText=res.results[0].first_air_date;
+                            }
+                            
+                            
+                             document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
+                           
+                            
+                           
+                            document.getElementById('rating').innerText=res.results[0].vote_average +" / 10";
+                            // document.getElementById('des').innerText=result.plot;
+                            
+                        })
+                        .catch(error => console.log('error', error));
+
+
                     
                     if(ans >= array.length){
                         document.querySelector('.trendnumber').innerText=Number('1') ;
