@@ -23,10 +23,13 @@ app.listen(port,process.env.IP,function(){
 	console.log("server started.");
 });
 
-app.get('/',function(req,res){
-        res.render("index.ejs");
+app.get('/search',function(req,res){
+        res.render("search.ejs");
 });
 
 app.get('/trending',function(req,res){
     res.render("trending.ejs");
+});
+app.get('/',function(req,res){
+    res.render("home.ejs");
 });
