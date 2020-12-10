@@ -26,3 +26,7 @@ app.listen(port,process.env.IP,function(){
 app.get('/',function(req,res){
         res.render("index.ejs");
 });
+
+app.get('/trending',function(req,res){
+    res.render("trending.ejs");
+});
