@@ -79,6 +79,26 @@ ul{
     bottom:2%;
     left:38%;
 }
+.op{
+    position:absolute;
+    text-align: center;
+    letter-spacing:10px ;
+    left: 42%;
+    top:60%;
+    text-transform: uppercase;
+    color: rgb(99, 97, 97);
+    animation: view 5s ease;
+}
+
+@keyframes view{
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 li{
     color: #F0EBEB;
