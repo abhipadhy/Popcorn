@@ -10,7 +10,7 @@
 <body  onkeydown="data()">
     <div class="pic"  onwheel="data()">
         <div class="head">
-            <span class="heading">trending &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span>
+            <span class="heading">trending &nbsp;</span><span class="line">| &nbsp;</span><span class="brand" style="display: none;"></span>
             <div ></div>
         </div>
         
@@ -88,7 +88,7 @@
         <div class="net" style="display: none;">watch on netflix</div>
         <div class="prime">watch on prime</div>
     </div>
-    <div class="cursor"></div>
+    <!-- <div class="cursor"></div> -->
 </body>
 
 <script>
@@ -111,6 +111,7 @@
     };
 
     function data(){
+
         var drop = document.querySelector('.dropdown');
         var style = window.getComputedStyle(drop);
         var val = style.getPropertyValue('display');
@@ -131,6 +132,7 @@
         
        
         var ans=0;
+        document.querySelector('.brand').style.display="block";
         document.querySelector('.trendnumber').style.color="ffffff";
         document.querySelector('.foot1').style.opacity=1;
         document.querySelector('.pcon').style.display='none';

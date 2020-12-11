@@ -4,7 +4,7 @@ body,html{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    cursor: none;
+    /* cursor: none; */
 }
 
 
@@ -88,7 +88,11 @@ h2{
     left: 7%;
     width: 30%;
     height: 3%;
+    
 }
+
+
+
 #logo{
    position: absolute;
    top: 5%;
@@ -227,7 +231,18 @@ h3 span{
     background-size: cover;
     width: 10%;
     height: 57%;
+    animation: l1 2s ease;
 }
+
+@keyframes l1{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
 .pic{
     background-image: linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632567/trending_dil65w.png');
     background-position: 50% 50%;
@@ -287,6 +302,7 @@ h3 span{
     left: 10%;
     right: 10%;
     margin:0%;
+    animation: r1 2s ease;
 }
 
 .tit{
@@ -348,6 +364,7 @@ iframe{
     top: 50%;
     width: 80%;
     height: 35%;
+    animation: r1 3s ease;
 }
 
 .net{
@@ -364,6 +381,34 @@ iframe{
     bottom: 5%;
     height: 5%;
     transition: 0.4s;
+    animation: r3 4s ease;
+}
+
+@keyframes r1{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes r2{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes r3{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 .net:hover{

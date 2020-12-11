@@ -9,22 +9,22 @@
 </head>
 <body >
     <div class="pic">
-        <div class="head">
-            <span class="heading">joker &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span>  
+        <div class="head" >
+            <span class="heading">Search &nbsp;</span><span class="line">| &nbsp;</span><span class="brand" style="display: none;"></span>  
             <div ></div>
         </div>
         <div class="squery">
             <input type="text" id="search" name="query" placeholder="Search for movie or tv-shows here." >
             <button onclick="search()">SEARCH</button>
         </div>
-        <h2 id="rdate" style="text-transform: uppercase;">2 OCTOBER 2019</h2>
-        <h1 id="mname" style="text-transform: uppercase;">JOKER</h1>
+        <h2 id="rdate" style="text-transform: uppercase;">Search your movies/tv shows here</h2>
+        <h1 id="mname" style="text-transform: uppercase;">SEARCH</h1>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
-        <div class="foot1" onclick="clck()">
+        <div class="foot1" onclick="clck()" style="display: none;">
             <span class="foote">read &nbsp;</span><span class="more">more</span>
         </div>
-        <ul>
+        <ul >
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li>HOME &nbsp;&nbsp;</li></a>
             <li id="genre" onclick="droplist()" >GENRE &nbsp;&nbsp;</li>
             <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
@@ -71,18 +71,19 @@
     <div class="content">
         <a href="/" id='logo'><img src="/assets/logo.png" alt=""></a>
         <div class="watch">search</div>
-        <div class="info">
+        <div class="info" style="display: none;">
             <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" >joker</span><br>
             <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime">123 mins</span><br>
             <span class="tit">genres : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="genres">drama</span><br>
             <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="release">2nd october 2019</span><br>
             <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="rating">8.5 / 10</span><br>
         </div>
-        <iframe src="https://www.youtube.com/embed/" ></iframe>
-        <div class="net">watch on netflix</div>
+        <p class="pcon">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem facere est possimus voluptas ut laudantium, ipsum iste laboriosam aliquid, ipsam quaerat minus? Eius autem beatae vitae quam soluta? Nobis, error!</p>
+        <iframe src="https://www.youtube.com/embed/" style="display: none;"></iframe>
+        <div class="net" style="display: none;">watch on netflix</div>
         <div class="prime">watch on prime</div>
     </div>
-    <div class="cursor"></div>
+    <!-- <div class="cursor"></div> -->
 </body>
 
 <script>
@@ -106,7 +107,12 @@
     };
     function search(){
         if(document.getElementById('search').value)
-        {
+        {   
+            document.querySelector('.pcon').style.display="none";
+            document.querySelector('.net').style.display="block";
+            document.querySelector('.brand').style.display="block";
+            document.querySelector('.info').style.display="block";
+            document.querySelector('.foot1').style.display="block";
             data(document.getElementById('search').value);
         }
     }
@@ -159,11 +165,13 @@
                                 vid = data.results[0].key;
                                 if (vid ===''){
                                     document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+                                    document.querySelector('iframe').style.display="block";
                                 }
                                 else{
                                     console.log('vid : ' + vid);
                             
                                     document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+                                    document.querySelector('iframe').style.display="block";
                                 }
                                 
                             
@@ -209,11 +217,13 @@
                                 vid = data.results[0].key;
                                 if (vid ===''){
                                     document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+                                    document.querySelector('iframe').style.display="block";
                                 }
                                 else{
                                     console.log('vid : ' + vid);
                             
                                     document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+                                    document.querySelector('iframe').style.display="block";
                                 }
                                 
                             
@@ -250,18 +260,7 @@
              }
                     
 
-                    var platform ='netflix';
-                    if (platform === 'prime' || platform === 'Prime' || platform === 'PRIME'){
-                        document.querySelector('.net').style.display='none';
-                        document.querySelector('.prime').style.display='block';
-                        document.querySelector('.brand').style.backgroundImage="url1('/assets/prime.png')";
-                       
-                    }
-                    else{
-                        document.querySelector('.net').style.display='block';
-                        document.querySelector('.prime').style.display='none';
-                        document.querySelector('.brand').style.backgroundImage="url1('/assets/netflix.png')";
-                    }
+                   
                 
 </script>
 
