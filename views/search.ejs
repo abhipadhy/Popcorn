@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for movies/tv</title>
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
 <body >
     <div class="pic">
@@ -12,7 +14,7 @@
             <div ></div>
         </div>
         <div class="squery">
-            <input type="text" id="search" name="query" placeholder="Search for movie or tv-shows here.">
+            <input type="text" id="search" name="query" placeholder="Search for movie or tv-shows here." >
             <button onclick="search()">SEARCH</button>
         </div>
         <h2 id="rdate" style="text-transform: uppercase;">2 OCTOBER 2019</h2>
@@ -24,10 +26,32 @@
         </div>
         <ul>
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li>HOME &nbsp;&nbsp;</li></a>
-            <li>GENRE &nbsp;&nbsp;</li>
+            <li id="genre" onclick="droplist()" >GENRE &nbsp;&nbsp;</li>
             <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
             <a href="/search" ><li style="color: #d6362d;">SEARCH</li></a>
         </ul>
+        <div class="dropdown" >
+            <a href="/" class="droplink">ACTION</a><br>
+            <a href="" class="droplink">ADVENTURE</a><br>
+            <a href="" class="droplink">ANIMATION</a><br>
+            <a href="" class="droplink">comedy</a><br>
+            <a href="" class="droplink">crime</a><br>
+            <a href="" class="droplink">documentary</a><br>
+            <a href="" class="droplink">drama</a><br>
+            <a href="" class="droplink">family</a><br>
+            <a href="" class="droplink">fantasy</a><br>
+            <a href="" class="droplink">history</a><br>
+            <a href="" class="droplink">horror</a><br>
+            <a href="" class="droplink">music</a><br>
+            <a href="" class="droplink">mystery</a><br>
+            <a href="" class="droplink">romance</a><br>
+            <a href="" class="droplink">science fiction</a><br>
+            <a href="" class="droplink">tv movie</a><br>
+            <a href="" class="droplink">thriller</a><br>
+            <a href="" class="droplink">war</a><br>
+            <a href="" class="droplink">western</a><br>
+
+        </div>
     </div>
     <div class="pic1">
         <p class="des" id="des">Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him.
@@ -37,10 +61,10 @@
             <span class="lead">LEAD &nbsp;</span><span class="cast1">CAST</span>
         </div><br><br>
         <div class="actors">
-            <div class="card" id="card1"><p id="name1">Joaquin Phoneix</p></div>
-            <div class="card" id="card2" ><p id="name2">Joaquin Phoneix</p></div>
-            <div class="card" id="card3"><p id="name3">Joaquin Phoneix</p></div>
-            <div class="card" id="card4"><p id="name4">Joaquin Phoneix</p></div>
+            <div class="card" id="card1"><p id="name1"></p></div>
+            <div class="card" id="card2" ><p id="name2"></p></div>
+            <div class="card" id="card3"><p id="name3"></p></div>
+            <div class="card" id="card4"><p id="name4"></p></div>
         </div>
     </div>
 
@@ -62,6 +86,15 @@
 </body>
 
 <script>
+
+    function droplist(){
+        document.querySelector('.dropdown').style.display="block";
+    }
+    document.querySelector('#search').onkeydown=function (e){
+        if(e.keyCode === 13){
+            search();
+        }
+    };
     function search(){
         if(document.getElementById('search').value)
         {

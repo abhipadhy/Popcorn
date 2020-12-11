@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body,html{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+}
+
+.error404{
+    background-image: url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1607638171/404_tpuhbf.png');
+    background-position: 50% 50%;
+    background-size: cover;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+}
+
+h1{
+    color: #d7d8d7;
+    font-size: 200px;
+    font-weight: 500;
+    margin-top: 8%;
+}
+
+.top{
+    width:2%;
+    height: 36%;
+    background-color: #00A8E1;
+    position: absolute;
+    left: 36%;
+    animation: top 2s ease;
+}
+
+@keyframes top{
+    from{
+        height: 0%;
+        opacity:0%;
+    }
+    to{
+        height: 36%;
+        opacity:1;
+    }
+}
+
+.bottom{
+    width:1.6%;
+    height: 37.5%;
+    background-color: #b6362d;
+    position: absolute;
+    top: 62.5%;
+    left: 65%;
+    animation: down 2s ease;
+}
+
+@keyframes down{
+    from{
+        height: 0%;
+        opacity: 0;
+    }
+    to{
+        height:37.5%;
+        opacity:1;
+    }
+}
+
+ul{
+    list-style: none;
+    position: absolute;
+    bottom:2%;
+    left:37%;
+    width: 50%;
+}
+
+li{
+    color: #F0EBEB;
+    float: left;
+    font-weight: 300;
+    transition: 0.4s;
+}
+
+li:hover{
+    color: #b6362d;
+    transition: 0.4s;
+    cursor: pointer;
+}
