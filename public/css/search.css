@@ -138,12 +138,13 @@ button{
     left:65%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     background-color:#1f1f1f;
-
+    padding: 2%;
 }
 
 .droplink{
     width:100%;
     padding: 2%;
+    margin-top:2%;
     font-size: 70%;
     text-decoration: none;
     text-align: left;
@@ -152,8 +153,8 @@ button{
     transition: .4s;
 }
 
-.droplink :hover{
-    background-color: #00A8E1;
+ .droplink:hover{
+  
     color:#b6362d;
     transition: .4s;
 }
