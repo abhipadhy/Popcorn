@@ -13,11 +13,67 @@ body,html{
     left:0%;
     top:0%;
     width: 65%;
-    height: 100%;
+    height: max-content;
 
+}
+.rating{
+    position: absolute;
+    top: 42%;
+    width: 100%;
+    left: 38%;
+}
+
+.card{
+    background-image: linear-gradient(180deg, rgba(10, 10, 10, 0) 33.99%, #0A0A0A 100%),url(/assets/joa.jpg);
+    
+    background-size:cover;
+    background-position: 50% 50%;
+    padding: 2%;
+    width: 20%;
+    text-align: center ;
+    float: left;
+    font-size: 70%;
+    color: #d7d8d7;
+    margin: 6%;
+    text-transform: uppercase;
+    height: 250px;
+    border: 3px solid #D7D8D7;
+    box-sizing: border-box;
+}
+.logo{
+    background:url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632562/logo_ieomoh.png') ;
+    background-size:cover;
+    background-position:50% 50% ;
+    width:15%;
+    height: 8%;
+    position: absolute;
+    top: 3%;
+    left: 40%;
+}
+
+ul{
+    list-style: none;
+    position: absolute;
+    top:10%;
+    left:28%;
+    width: 68%;
+}
+
+li{
+    color: #F0EBEB;
+    float: left;
+    font-weight: 300;
+    transition: 0.4s;
+}
+
+li:hover{
+    color: #b6362d;
+    transition: 0.4s;
+    cursor: pointer;
 }
 
 .right{
+
     background-color: #1c1c1c;
     position: absolute;
     position:fixed;
@@ -70,4 +126,11 @@ h4{
     padding: 0%;
     margin: 0%;
     text-transform: uppercase;
+}
+
+p{
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+    color: #d7d8d7;
 }

@@ -8,13 +8,36 @@
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
 <body>
-    <div class="left"></div>
+    <div class="left">
+        <a href='/' class="logo"></a><br><br>
+        <ul>
+            <a href="/" style="text-decoration: none; color: #d7d8d7;"><li >HOME &nbsp;&nbsp;</li></a>
+            <li style="color: #b6362d;" >GENRE &nbsp;&nbsp;</li>
+            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
+            <a href="/search"><li id="search">SEARCH</li></a>
+        </ul>
+        <br><br><br>
+        <div class="card" id="card1"></div>
+        <div class="card" id="card2"></div>
+        <div class="card" id="card2"></div>
+        <div class="card" id="card2"></div>
+    </div>
 
     <div class="right">
         <div class="watch">genre</div>
         <div class="pic"></div>
+        <div class="rating">
+            <img src="/assets/imdb.png" alt="" style="width: 10%;">
+            <h4 style="position: absolute; top:0%; left:12%">8.5/10</h4>
+        </div>
         <h1>JOKER</h1>
         <h4>2nd october 2019</h4>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo consequuntur similique nam labore ullam voluptatum, adipisci eius natus quam reprehenderit et ipsa neque consectetur voluptas excepturi cupiditate provident ipsum. Inventore!</p>
         <a href=""><button>READ MORE</button></a>
     </div>
 </body>
+<script>
+    document.querySelector('.card').addEventListener('click',()=>{
+        document.querySelector('.card').style.borderColor="#b6362d";
+    });
+</script>
