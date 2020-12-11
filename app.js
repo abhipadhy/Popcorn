@@ -24,14 +24,14 @@ app.listen(port,process.env.IP,function(){
 });
 
 app.get('/search',function(req,res){
-        res.render("search.ejs");
+        res.render("search.ejs",{key:process.env.APIKEY});
 });
 
 app.get('/trending',function(req,res){
-    res.render("trending.ejs");
+    res.render("trending.ejs",{key:process.env.APIKEY});
 });
 app.get('/',function(req,res){
-    res.render("home.ejs");
+    res.render("home.ejs",{key:process.env.APIKEY});
 });
 
 app.get('/404',function(req,res){
@@ -39,6 +39,6 @@ app.get('/404',function(req,res){
 });
 
 app.get('/genre',function(req,res){
-    res.render("genre.ejs");
+    res.render("genre.ejs",{key:process.env.APIKEY});
 });
 
