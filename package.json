@@ -1,33 +1,21 @@
 {
   "name": "popcorn",
   "version": "1.0.0",
-  "description": "popcorn",
+  "description": "",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abhipadhy/popcorn.git"
-  },
-  "author": "abhishek padhy & divesh arora",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/abhipadhy/popcorn/issues"
-  },
-  "homepage": "https://github.com/abhipadhy/popcorn#readme",
   "dependencies": {
     "body": "^5.1.0",
     "body-parser": "^1.19.0",
+    "convict": "^6.0.0",
     "dot": "^1.1.3",
-    "dot-env": "0.0.1",
+    "dot-env": "^0.0.1",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
-    "env": "0.0.2",
+    "env": "^0.0.2",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongodb": "^3.6.3",
-    "mongoose": "^5.11.4",
+    "mongoose": "^5.11.7",
     "parser": "^0.1.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
@@ -36,10 +24,20 @@
     "save": "^2.4.0",
     "uuid": "^8.3.1"
   },
-  "devDependencies": {
-    "@types/convict": "^5.2.1",
-    "@types/dotenv": "^8.2.0",
-    "convict": "^6.0.0",
-    "dotenv": "^8.2.0"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhipadhy/popcorn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhipadhy/popcorn/issues"
+  },
+  "homepage": "https://github.com/abhipadhy/popcorn#readme"
 }

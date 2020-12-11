@@ -1,10 +1,9 @@
-const uuid = require('uuid');
+
 var express=require('express');
 var app=express();
 var path=require('path');
 var bodyparser=require('body-parser');
 const { compile } = require('ejs');
-const sessionId = uuid.v4();
 require('dotenv').config();
 app.use(express.static(path.join(__dirname, '/public')));
 
