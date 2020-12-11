@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
 <body  onkeydown="data()">
-    <div class="pic" onmousewheel="data()" >
+    <div class="pic"  onwheel="data()">
         <div class="head">
             <span class="heading">trending &nbsp;</span><span class="line">| &nbsp;</span><span class="brand"></span>
             <div ></div>
@@ -105,7 +105,16 @@
         }
     };
     function data(){
-        var flag= '';
+        var drop = document.querySelector('.dropdown');
+        var style = window.getComputedStyle(drop);
+        var val = style.getPropertyValue('display');
+        console.log(val);
+      
+        if (val === 'block'){
+            return;
+        }
+        else{
+            var flag= '';
         flag = document.querySelector('.more').innerText;
         console.log('flag' + flag);
         if(flag ==='LESS'){
@@ -125,7 +134,7 @@
         document.querySelector('.net').style.display="block";
         ans= document.querySelector('.trendnumber').innerText;
         console.log(ans);
-                
+                    
                     var vid ='';
                     var imga='';
                     var url = 'https://yts.mx/api/v2/list_movies.json?query_term='+array[ans-1];
@@ -197,14 +206,16 @@
                         document.querySelector('.trendnumber').innerText=Number(ans)+ 1 ;
                         
                     }
-                        
-                  
+        }
+       
+            
+             
                     
                 
         }
 
 
-        
+    
        
         // var url1 ='https://customsearch.googleapis.com/customsearch/v1?cx=0f9e2df3020e49a58&imgSize=large&imgType=photo&num=1&q='+ans+'&searchType=image&key=AIzaSyC3Bg9i3odWhlqKCHEu2Q_2-w6Qh9NLj3E';
         // fetch(url1)
