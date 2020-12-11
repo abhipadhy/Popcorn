@@ -88,7 +88,16 @@
 <script>
 
     function droplist(){
-        document.querySelector('.dropdown').style.display="block";
+        var drop = document.querySelector('.dropdown');
+        var style = window.getComputedStyle(drop);
+        var val = style.getPropertyValue('display');
+        console.log(val);
+        if(val === 'none'){
+            drop.style.display="block";
+        }
+        else{
+            drop.style.display="none";
+        }
     }
     document.querySelector('#search').onkeydown=function (e){
         if(e.keyCode === 13){

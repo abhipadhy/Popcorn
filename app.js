@@ -37,3 +37,7 @@ app.get('/',function(req,res){
 app.get('/404',function(req,res){
     res.render("404.ejs");
 });
+
+app.get('/genre',function(req,res){
+    res.render("genre.ejs");
+});

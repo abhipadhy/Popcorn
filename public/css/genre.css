@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body,html{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+ 
+}
+
+.left{
+    background-color: #0a0a0a;
+    position: absolute;
+    left:0%;
+    top:0%;
+    width: 65%;
+    height: 100%;
+
+}
+
+.right{
+    background-color: #1c1c1c;
+    position: absolute;
+    position:fixed;
+    left:65%;
+    top:0%;
+    width: 35%;
+    height: 100%;
+}
+
+.pic{
+    background: linear-gradient(180deg, rgba(28, 28, 28, 0) 0%, rgba(28, 28, 28, 0.69) 79.06%, #1C1C1C 93.75%),url('/assets/joker.png');
+    width:100%;
+    height: 50%;
+    background-size:cover ;
+    background-position:50% 50% ;
+}
+
+.pic:hover{
+    background-position:100% 50% ;
+}
+.watch{
+    text-transform: uppercase;
+    padding: 2%;
+    text-align: center;
+    color: #d7d8d7;
+    border: 2%;
+    font-weight: 600;
+    border-style: solid;
+    border-color: #d7d8d7;
+    width: 20%;
+    height: 4%;
+    position: absolute;
+    right: 7%;
+    top: 5%;
+    transition: 0.4s;
+}
+h1{
+    text-align: center;
+    color: #d7d8d7;
+    padding: 0%;
+    margin: 0%;
+    margin-top:2%;
+    text-transform: uppercase;
+}
+
+h4{
+    text-align: center;
+    color: #9c9c9c;
+    font-weight: 400;
+    padding: 0%;
+    margin: 0%;
+    text-transform: uppercase;
+}

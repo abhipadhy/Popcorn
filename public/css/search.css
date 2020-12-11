@@ -148,13 +148,14 @@ button{
     padding: 2%;
     font-size: 70%;
     text-decoration: none;
-    text-align:left;
+    text-align: left;
     text-transform: uppercase;
     color:#d7d8d7;
     transition: .4s;
 }
 
-a :hover{
+.droplink :hover{
+    background-color: #00A8E1;
     color:#b6362d;
     transition: .4s;
 }

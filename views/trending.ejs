@@ -24,10 +24,32 @@
         </div>
         <ul>
             <a href="/" style="text-decoration: none;"><li>HOME &nbsp;&nbsp;</li></a>
-            <li>GENRE &nbsp;&nbsp;</li>
+            <li onclick="droplist()">GENRE &nbsp;&nbsp;</li>
             <a href="/trending"><li style="color: #b6362d;">TRENDING &nbsp;&nbsp;</li></a>
             <a href="/search"><li >SEARCH</li></a>
         </ul>
+        <div class="dropdown" >
+            <a href="/" class="droplink">ACTION</a><br>
+            <a href="" class="droplink">ADVENTURE</a><br>
+            <a href="" class="droplink">ANIMATION</a><br>
+            <a href="" class="droplink">comedy</a><br>
+            <a href="" class="droplink">crime</a><br>
+            <a href="" class="droplink">documentary</a><br>
+            <a href="" class="droplink">drama</a><br>
+            <a href="" class="droplink">family</a><br>
+            <a href="" class="droplink">fantasy</a><br>
+            <a href="" class="droplink">history</a><br>
+            <a href="" class="droplink">horror</a><br>
+            <a href="" class="droplink">music</a><br>
+            <a href="" class="droplink">mystery</a><br>
+            <a href="" class="droplink">romance</a><br>
+            <a href="" class="droplink">science fiction</a><br>
+            <a href="" class="droplink">tv movie</a><br>
+            <a href="" class="droplink">thriller</a><br>
+            <a href="" class="droplink">war</a><br>
+            <a href="" class="droplink">western</a><br>
+
+        </div>
         
             <div class="circle"></div>
                
@@ -65,6 +87,18 @@
 </body>
 
 <script>
+    function droplist(){
+        var drop = document.querySelector('.dropdown');
+        var style = window.getComputedStyle(drop);
+        var val = style.getPropertyValue('display');
+        console.log(val);
+        if(val === 'none'){
+            drop.style.display="block";
+        }
+        else{
+            drop.style.display="none";
+        }
+    }
     document.querySelector('body').onkeydown=function (e){
         if(e.keyCode === 39 || e.keyCode === 40){
             data();
