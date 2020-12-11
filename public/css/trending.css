@@ -248,7 +248,7 @@ h3 span{
     top: 100%;
     left: 0%;
     width: 70%;
-    height: 100%;
+    height: max-content;
     transition: 0.4s;
 }
 
@@ -426,18 +426,24 @@ li:hover{
     height: fit-content;
 }
 
+.card p{
+    vertical-align: bottom;
+}
+
 .card{
-    background-image: linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(/assets/joa.jpg);
-    position: absolute;
+    background-image: linear-gradient(180deg, rgba(10, 10, 10, 0) 33.99%, #0A0A0A 100%),url(/assets/joa.jpg);
+    float:left;
     background-size:cover;
     background-position: 50% 50%;
     padding: 2%;
-    width: 15%;
-    text-align: center;
+    width: 20%;
+    text-align: center ;
     font-size: 70%;
     color: #d7d8d7;
+    margin: 3%;
+    margin-right: 1%;
     text-transform: uppercase;
-    height: 30%;
+    height: 250px;
     border: 3px solid #D7D8D7;
     box-sizing: border-box;
 }

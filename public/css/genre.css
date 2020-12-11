@@ -45,6 +45,10 @@ body,html{
     border: 3px solid #D7D8D7;
     box-sizing: border-box;
 }
+
+.card:hover{
+    border-color: #b6362d;
+}
 .logo{
     background:url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632562/logo_ieomoh.png') ;
     background-size:cover;

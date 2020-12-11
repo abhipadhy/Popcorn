@@ -64,7 +64,10 @@
             <span class="lead">LEAD &nbsp;</span><span class="cast1">CAST</span>
         </div><br><br>
         <div class="actors">
-            <div class="card"><p id="name">Joaquin Phoneix</p></div>
+            <div class="card" id="card1"><p id="name1">Joaquin Phoneix</p></div>
+            <div class="card" id="card2"><p id="name2">Joaquin Phoneix</p></div>
+            <div class="card" id="card3"><p id="name3">Joaquin Phoneix</p></div>
+            <div class="card" id="card4"><p id="name4">Joaquin Phoneix</p></div>
         </div>
     </div>
 
@@ -75,6 +78,8 @@
             <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" ></span><br>
             <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime"></span><br>
             <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="release"></span><br>
+            <span class="tit">popularity : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="pop"></span><br>
+            <span class="tit">media type : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="media"></span><br>
             <span class="tit">imdb : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="rating"></span><br>
         </div>
         <p class="pcon">Discover the top trending movies & tv shows of this week Lorem ipsum dolor sit amet consectetur adipisicing elit. Error eius delectus dolore eum architecto velit assumenda dolores veniam eos, aliquam fugit eaque cupiditate voluptatem voluptates, aliquid, quas libero quidem expedita.</p>
@@ -104,62 +109,64 @@
             data();
         }
     };
+
     function data(){
         var drop = document.querySelector('.dropdown');
         var style = window.getComputedStyle(drop);
         var val = style.getPropertyValue('display');
-        console.log(val);
-      
+        console.log('value :' + val);
+        
+
         if (val === 'block'){
             return;
         }
         else{
             var flag= '';
         flag = document.querySelector('.more').innerText;
-        console.log('flag' + flag);
+        console.log('flag : ' + flag);
         if(flag ==='LESS'){
             return;
         } 
         else if(flag ==='MORE'){
         
-        var array = ['suits','the office','game of thrones','brooklynn nine nine','silicon valley','dark','breaking bad','the haunting of hill house','vikings','the walking dead','house of cards'];
+       
         var ans=0;
         document.querySelector('.trendnumber').style.color="ffffff";
         document.querySelector('.foot1').style.opacity=1;
         document.querySelector('.pcon').style.display='none';
         
-        
+        document.querySelector('.info').style.display='block';
         document.querySelector('.trendnumber').style.borderColor="ffffff";
         document.querySelector('iframe').style.display="block";
         document.querySelector('.net').style.display="block";
         ans= document.querySelector('.trendnumber').innerText;
-        console.log(ans);
-                    
-                    var vid ='';
-                    var imga='';
-                    var url = 'https://yts.mx/api/v2/list_movies.json?query_term='+array[ans-1];
-                    fetch(url)
-                    .then(response => response.json())
+        console.log('ans :' +ans);
+                    var array=[];
+                    var idarray= [];
+                    fetch('https://api.themoviedb.org/3/trending/all/week?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb')
+                    .then(response =>response.json() )
                     .then(function (data){
-                        vid = data.data.movies[0].yt_trailer_code;
-                        if (vid ===''){
-                            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+                        console.log('data :' + Object.keys(data).length); 
+
+                        for(var i=0;i< 20;i++){
+                            var type =data.results[i].media_type;
+                            console.log(type);
+                            if(type ==='tv'){
+                                var item = data.results[i].original_name;
+                                var id = data.results[i].id;
+                            }
+                            else{
+                                var item = data.results[i].original_title;
+                                var id = data.results[i].id;
+                            }
+                            
+                           
+                            array.push(item);
+                            idarray.push(id);
                         }
-                        else{
-                            // console.log('vid : ' + vid);
-                            // iid  = data.data.movies[0].large_cover_image;
-                            // console.log(iid);
-                            // document.getElementById('des').innerText=data.data.movies[0].description_full;
-                            // document.getElementById('movie').innerText=data.data.movies[0].title;
-                            // document.getElementById('mname').innerText=data.data.movies[0].title;
-                            // document.getElementsByClassName('heading')[0].innerText=data.data.movies[0].title;
-                            // document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
-                            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
-                        }
-                        document.querySelector('.info').style.display='block';
-                    
-                        
-                    });
+
+                    var vid ='';
+                    var imga='';                   
 
                     fetch(`https://api.themoviedb.org/3/search/multi?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=${array[ans-1]}&page=1&include_adult=false`)
             .then(response => response.json())
@@ -170,15 +177,69 @@
                             iid  = `https://image.tmdb.org/t/p/original${res.results[0].backdrop_path}`;
                             console.log(iid);
                             document.getElementById('des').innerText=res.results[0].overview;
-                            if(res.results[0].media_type.localeCompare('movie')===0){
+                            if(res.results[0].media_type.localeCompare('movie')===0){ // for movvie
+
+                                fetch(`https://api.themoviedb.org/3/movie/${res.results[0].id}/credits?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US`)
+                                .then(response=>response.json())
+                                .then(function(t){
+                                    for(let i=1;i<=4;i++)
+                                    {
+                                        document.getElementById(`name${i}`).innerText=`${t.cast[i-1].name} AS ${t.cast[i-1].character}`;
+                                        document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${t.cast[i-1].profile_path}')`;
+
+                                    }
+                                })
+
+                                fetch(`https://api.themoviedb.org/3/movie/${res.results[0].id}/videos?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US`)
+                            .then(response => response.json())
+                            .then(function (data){
+                                vid = data.results[0].key;
+                                if (vid ===''){
+                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+                                }
+                                else{
+                                    console.log('vid : ' + vid);
+                            
+                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+                                }
                                 
+                            
+                                
+                            });
+                            
                             document.getElementById('movie').innerText=res.results[0].title;
                             document.getElementById('mname').innerText=res.results[0].title;
                             document.getElementsByClassName('heading')[0].innerText=res.results[0].title;
                             // document.getElementById('release').innerText=res.results[0].release_date;
                             // document.getElementById('rdate').innerText=res.results[0].release_date;
                             }
-                            else{
+                            else{ // for tv
+                                fetch(`https://api.themoviedb.org/3/tv/${res.results[0].id}/credits?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US`)
+                                .then(response=>response.json())
+                                .then(function(t){
+                                    for(let i=1;i<=4;i++)
+                                    {
+                                        document.getElementById(`name${i}`).innerText=`${t.cast[i-1].name} AS ${t.cast[i-1].character}`;
+                                        document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${t.cast[i-1].profile_path}')`;
+
+                                    }
+                                })
+                                fetch(`https://api.themoviedb.org/3/tv/${res.results[0].id}/videos?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US`)
+                            .then(response => response.json())
+                            .then(function (data){
+                                vid = data.results[0].key;
+                                if (vid ===''){
+                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+                                }
+                                else{
+                                    console.log('vid : ' + vid);
+                            
+                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+                                }
+                                
+                            
+                                
+                            });
                                 document.getElementById('movie').innerText=res.results[0].name;
                             document.getElementById('mname').innerText=res.results[0].name;
                             document.getElementsByClassName('heading')[0].innerText=res.results[0].name;
@@ -189,8 +250,8 @@
                             
                              document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
                            
-                            
-                           
+                             document.getElementById('pop').innerText=res.results[0].popularity;
+                             document.getElementById('media').innerText=res.results[0].media_type;
                             document.getElementById('rating').innerText=res.results[0].vote_average +" / 10";
                             // document.getElementById('des').innerText=result.plot;
                             
@@ -206,6 +267,10 @@
                         document.querySelector('.trendnumber').innerText=Number(ans)+ 1 ;
                         
                     }
+                    });// then ends here
+                   
+                    
+                    
         }
        
             

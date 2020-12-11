@@ -41,3 +41,4 @@ app.get('/404',function(req,res){
 app.get('/genre',function(req,res){
     res.render("genre.ejs");
 });
+
