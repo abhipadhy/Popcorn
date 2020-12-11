@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/genre.css">
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
-<body>
+<body >
     <div class="left">
         <a href='/' class="logo"></a><br><br>
         <ul>
@@ -16,8 +16,10 @@
             <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
             <a href="/search"><li id="search">SEARCH</li></a>
         </ul>
-        <br><br><br>
+        <br><br><br><br>
+
         <div class="card" id="card1"></div>
+        <div class="card" id="card2"></div>
         <div class="card" id="card2"></div>
         <div class="card" id="card2"></div>
         <div class="card" id="card2"></div>
@@ -35,9 +37,29 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo consequuntur similique nam labore ullam voluptatum, adipisci eius natus quam reprehenderit et ipsa neque consectetur voluptas excepturi cupiditate provident ipsum. Inventore!</p>
         <a href=""><button>READ MORE</button></a>
     </div>
+    <div class="cursor"></div>
 </body>
 <script>
     document.querySelector('.card').addEventListener('click',()=>{
         document.querySelector('.card').style.borderColor="#b6362d";
     });
+
+   
 </script>
+
+<script>
+    const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+        })
+
+    document.addEventListener('click', () => {
+        cursor.classList.add("expand");
+
+        setTimeout(() => {
+            cursor.classList.remove("expand");
+        }, 500)
+    })
+</script>
+

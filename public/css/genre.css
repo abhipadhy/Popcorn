@@ -4,6 +4,7 @@ body,html{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    cursor: none;
  
 }
 
@@ -13,6 +14,7 @@ body,html{
     left:0%;
     top:0%;
     width: 65%;
+    height: 100%;
     height: max-content;
 
 }
@@ -34,9 +36,12 @@ body,html{
     float: left;
     font-size: 70%;
     color: #d7d8d7;
-    margin: 6%;
+    margin-left: 3.5%;
+    margin-right: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     text-transform: uppercase;
-    height: 250px;
+    height: 270px;
     border: 3px solid #D7D8D7;
     box-sizing: border-box;
 }
@@ -91,9 +96,6 @@ li:hover{
     background-position:50% 50% ;
 }
 
-.pic:hover{
-    background-position:100% 50% ;
-}
 .watch{
     text-transform: uppercase;
     padding: 2%;
@@ -133,4 +135,84 @@ p{
     margin-right: 7%;
     text-align: justify;
     color: #d7d8d7;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color:#0a0a0ade;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #b6362d; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00A8E1; 
+  }
+ /* custom cursor */
+ .cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    transition-duration: 120ms;
+    transition-timing-function: ease-out;
+    animation: cursorAnim .5s infinite alternate;
+    pointer-events: none;
+}
+
+.cursor::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: 8px solid #c5c3c3;
+    border-radius: 50%;
+    opacity: .5;
+    top: -8px;
+    left: -8px;
+    animation: cursorAnim2 .5s infinite alternate;
+}
+
+@keyframes cursorAnim {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.7);
+    }
+}
+
+@keyframes cursorAnim2 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.4);
+    }
+}
+
+@keyframes cursorAnim3 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.expand {
+    animation: cursorAnim3 .5s forwards;
+    border: 1px solid red;
 }
