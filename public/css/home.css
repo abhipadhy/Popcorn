@@ -312,3 +312,13 @@ iframe{
         left: 28%;
     }
 }
+
+@media only screen and (max-height:600px){
+    ul{
+        padding-left:7%;
+    }
+
+    .op{
+        left: 23%;
+    }
+}
