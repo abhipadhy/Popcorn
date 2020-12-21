@@ -587,3 +587,36 @@ li:hover{
     animation: cursorAnim3 .3s forwards;
     border: 1px solid red;
 }
+
+@media only screen and (max-width:450px){
+    .content{
+        display:none;
+        width: 0%;
+    }
+
+    .pic{
+        width: 100%;
+    }
+
+    ul{
+        left: 0%;
+        padding-left: 12%;
+    }
+
+    .foot1{
+        bottom: 15%;
+        left: 35%;
+        right: 35%;
+    }
+
+    .pic1{
+        width:100%;
+    }
+}
+
+@media only screen and (max-height:600px){
+    ul{
+        left: 0%;
+        padding-left:7%;
+    }
+}
