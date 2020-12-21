@@ -276,3 +276,39 @@ iframe{
     animation: cursorAnim3 .5s forwards;
     border: 1px solid red;
 }
+
+
+/*media queries */
+
+@media only screen and (max-width:450px){
+    .left{
+        width:0%;
+    }
+
+    .logo{
+     left: 12%;
+     width: 75%;
+    }
+
+    .line2{
+        display: none;
+    }
+
+    .line1{
+        display: none;
+    }
+
+    .squery{
+        left:60%;
+        width: 30%;
+        height: 10%;
+    }
+
+    ul{
+        left:0%;
+    }
+    .op{
+        letter-spacing:5px;
+        left: 28%;
+    }
+}
