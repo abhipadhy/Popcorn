@@ -87,7 +87,6 @@
 </body>
 
 <script>
-
     function droplist(){
         var drop = document.querySelector('.dropdown');
         var style = window.getComputedStyle(drop);
@@ -114,6 +113,7 @@
             document.querySelector('.info').style.display="block";
             document.querySelector('.foot1').style.display="block";
             data(document.getElementById('search').value);
+            document.getElementById('search').value='';
         }
     }
     function data(ans){
