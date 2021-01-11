@@ -91,6 +91,21 @@ h2{
     
 }
 
+.nextm{
+    position: absolute;
+    display: none;
+    bottom:7%;
+    right: 7%;
+    color: #ffffff;
+    transition: 0.4s;
+    height: 3%;
+}
+
+.nextm:hover{
+    color:#b6362d;
+    transition: 0.4s;
+    cursor: pointer;
+}
 
 
 #logo{
@@ -594,11 +609,15 @@ li:hover{
    
 
     .foot1{
-        bottom: 15%;
-        left: 35%;
-        right: 35%;
+        bottom: 12%;
+        left: 12%;
     }
-
+    .nextm{
+        font-weight: 600;
+        display: block;
+        bottom: 12%;
+        right:12%;
+    }
     .pic1{
         width:100%;
     }
@@ -611,5 +630,13 @@ li:hover{
     ul{
         left: 0%;
         padding-left:7%;
+    }
+    .foot1{
+        bottom: 12%;
+        left: 7%;
+    }
+    .nextm{
+        display: block;
+        bottom: 12%;
     }
 }
