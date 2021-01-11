@@ -286,6 +286,7 @@ iframe{
     }
 
     .logo{
+     top:17%;
      left: 12%;
      width: 75%;
     }
@@ -299,8 +300,9 @@ iframe{
     }
 
     .squery{
-        left:60%;
-        width: 30%;
+        left:14%;
+        top:60%;
+        width: 72%;
         height: 10%;
     }
 
@@ -308,6 +310,7 @@ iframe{
         left:0%;
     }
     .op{
+        top:47%;
         letter-spacing:5px;
         left: 28%;
     }

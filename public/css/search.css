@@ -612,6 +612,9 @@ li:hover{
     .pic1{
         width:100%;
     }
+    h1{
+        font-size:30px ;
+    }
 }
 
 @media only screen and (max-height:600px){
