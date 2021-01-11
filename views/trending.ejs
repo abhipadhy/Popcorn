@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>See what's trending</title>
     <link rel="stylesheet" href="/css/trending.css">
+
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
-<body  onkeydown="data()">
+<body  onkeydown="data()" id='bodyi'>
     <div class="pic" >
         <div class="head">
             <span class="heading">trending &nbsp;</span><span class="line">| &nbsp;</span><span class="brand" style="display: none;"></span>
@@ -19,7 +20,7 @@
         <p class="trendnumber">1</p>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
-        <div class="foot1" onclick="clck()" style="opacity:0.01" >
+        <div class="foot1" onclick="clck()" style="opacity:0.01">
             <span class="foote">read &nbsp;</span><span class="more">more</span>
         </div>
         <div class="nextm" onclick="data()">
@@ -93,6 +94,7 @@
     </div>
     <!-- <div class="cursor"></div> -->
 </body>
+
 
 <script>
     function droplist(){
@@ -372,7 +374,7 @@
                 }, 500)
             })
 </script>
-
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
 
 
@@ -382,11 +384,20 @@
             document.querySelector('.pic1').style.display="none";
             document.querySelector('.pic1').style.transition="0.4s";
             document.querySelector('.more').innerHTML='MORE';
+            document.querySelector('.content').display="block";
+            document.querySelector('.content').style.transition="0.4s";
+            document.querySelector('.nextm').style.opacity=1;
+            document.querySelector('.nextm').style.transition="0.4s";
         }
         else{
             document.querySelector('.pic1').style.display="block";
             document.querySelector('.pic1').style.transition="0.4s";
             document.querySelector('.more').innerHTML='LESS';
+            document.querySelector('.content').display="none";
+            document.querySelector('.content').style.transition="0.4s";
+            document.querySelector('.nextm').style.opacity=0.01;
+            document.querySelector('.nextm').style.transition="0.4s";
+            $('html,body').animate({ scrollTop: $(document).height() }, 1000);
         }
         
     }

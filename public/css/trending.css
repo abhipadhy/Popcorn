@@ -278,7 +278,7 @@ h3 span{
     top: 100%;
     left: 0%;
     width: 70%;
-    height: max-content;
+    height:max-content;
     transition: 0.4s;
 }
 
@@ -306,7 +306,9 @@ h3 span{
     top: 0%;
     left: 70%;
     width: 30%;
+    display: block;
     height: 100%;
+    transition: 0.4s;
 }
 
 .info{
@@ -594,12 +596,19 @@ li:hover{
 
 @media only screen and (max-width:450px){
     .content{
-        display:none;
-        width: 0%;
+        position: absolute;
+        left:0%;
+        top:100%;
+        width: 100%;
+        background-color: rgb(27,27,27);
     }
 
     .pic{
         width: 100%;
+    }
+    .pic1{
+        top:200%;
+        transition: 0.4s;
     }
 
     ul{
