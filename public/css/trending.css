@@ -86,6 +86,7 @@ h2{
     position: absolute;
     background-color: transparent;
     border:none;
+    outline:none;
     bottom:5%;
     left: 7%;
     width: 30%;
@@ -390,6 +391,8 @@ iframe{
     width: 78%;
     left: 10%;
     right: 10%;
+    outline: none;
+    border: none;
     background-color: #b6362d;
     color: white;
     text-transform: uppercase;
