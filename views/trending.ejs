@@ -20,9 +20,9 @@
         <p class="trendnumber">1</p>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
-        <div class="foot1" onclick="clck()" style="opacity:0.01">
+        <button class="foot1" onclick="clck()" style="opacity:0.01">
             <span class="foote">read &nbsp;</span><span class="more">more</span>
-        </div>
+        </button>
         <div class="nextm" onclick="data()">
             <span>NEXT</span>
         </div>
@@ -89,7 +89,7 @@
         <p class="pcon">Discover the top trending movies & tv shows of this week Lorem ipsum dolor sit amet consectetur adipisicing elit. Error eius delectus dolore eum architecto velit assumenda dolores veniam eos, aliquam fugit eaque cupiditate voluptatem voluptates, aliquid, quas libero quidem expedita.</p>
         
         <iframe src="https://www.youtube.com/embed/" style="display: none;"></iframe>
-        <div class="net" style="display: none;" onclick="clck()">read more</div>
+        <button class="net" style="display: none;" onclick="clck()">read more</button>
         <div class="prime">watch on prime</div>
     </div>
     <!-- <div class="cursor"></div> -->
@@ -389,15 +389,22 @@
                 document.querySelector('.more').innerHTML='MORE';
                 // document.querySelector('.content').style.transition="0.4s";
                 document.querySelector('.nextm').style.opacity=1;
+                document.querySelector('.net').disabled=true;
+                document.querySelector('.foot1').disabled=true;
                 // document.querySelector('.nextm').style.transition="0.4s";
-                window.scrollTo({top: 0, behavior: 'smooth'});
+               $('html,body').animate({ scrollTop: 0}, 1000);
+
 
             let promise = new Promise((resolve, reject) => {
+
                 setTimeout(() => resolve("done!"), 1000)
             });
 
             let result = await promise; 
+            document.querySelector('.net').disabled=false;
+            document.querySelector('.foot1').disabled=false;
             document.querySelector('.pic1').style.display="none";
+            
             }
 
             f();
@@ -412,8 +419,8 @@
             // document.querySelector('.content').style.transition="0.4s";
             document.querySelector('.nextm').style.opacity=0.01;
             // document.querySelector('.nextm').style.transition="0.4s";
-            // $('html,body').animate({ scrollTop: $(document).height() }, 100);
-            window.scrollTo({top: $(document).height(), behavior: 'smooth'});
+            $('html,body').animate({ scrollTop: $(document).height() }, 1000);
+            // window.scrollTo({top: $(document).height(), behavior: 'smooth'});
         }
         
     }
