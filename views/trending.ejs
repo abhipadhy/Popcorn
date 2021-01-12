@@ -382,16 +382,26 @@
         var flag = document.querySelector('.more').innerHTML;
         if(flag === 'LESS'){
             
-            document.querySelector('.net').innerHTML='read more';
-            document.querySelector('.content').display="block";
+            async function f() {
+                document.querySelector('.net').innerHTML='read more';
+                document.querySelector('.content').display="block";
+                // document.querySelector('.pic1').style.transition="0.4s";
+                document.querySelector('.more').innerHTML='MORE';
+                // document.querySelector('.content').style.transition="0.4s";
+                document.querySelector('.nextm').style.opacity=1;
+                // document.querySelector('.nextm').style.transition="0.4s";
+                window.scrollTo({top: 0, behavior: 'smooth'});
+
+            let promise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve("done!"), 1000)
+            });
+
+            let result = await promise; 
             document.querySelector('.pic1').style.display="none";
-            // document.querySelector('.pic1').style.transition="0.4s";
-            document.querySelector('.more').innerHTML='MORE';
-            // document.querySelector('.content').style.transition="0.4s";
-            document.querySelector('.nextm').style.opacity=1;
-            // document.querySelector('.nextm').style.transition="0.4s";
-            window.scrollTo({top: 0, behavior: 'smooth'});
-           
+            }
+
+            f();
+               
         }
         else{
             document.querySelector('.pic1').style.display="block";
