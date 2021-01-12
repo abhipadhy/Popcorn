@@ -84,6 +84,8 @@ h2{
 
 .foot1{
     position: absolute;
+    background-color: transparent;
+    border:none;
     bottom:5%;
     left: 7%;
     width: 30%;
