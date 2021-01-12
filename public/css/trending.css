@@ -635,6 +635,9 @@ li:hover{
         left: 12%;
     }
     .nextm{
+        outline: none;
+        background-color: transparent;
+        border:none;
         font-weight: 600;
         display: block;
         bottom: 15%;
@@ -644,7 +647,7 @@ li:hover{
         width:100%;
     }
     h1{
-        font-size:30px ;
+        font-size:27px ;
     }
 }
 
