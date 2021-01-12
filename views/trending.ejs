@@ -362,17 +362,17 @@
 <script>
             const cursor = document.querySelector('.cursor');
 
-                document.addEventListener('mousemove', e => {
-                    cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
-                })
+                // document.addEventListener('mousemove', e => {
+                //     cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+                // })
 
-            document.addEventListener('click', () => {
-                cursor.classList.add("expand");
+            // document.addEventListener('click', () => {
+            //     cursor.classList.add("expand");
 
-                setTimeout(() => {
-                    cursor.classList.remove("expand");
-                }, 500)
-            })
+            //     setTimeout(() => {
+            //         cursor.classList.remove("expand");
+            //     }, 500)
+            // })
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
@@ -381,27 +381,29 @@
     function clck(){
         var flag = document.querySelector('.more').innerHTML;
         if(flag === 'LESS'){
-            window.scrollTo({top: 0, behavior: 'smooth'});
-            document.querySelector('.pic1').style.display="none";
-            document.querySelector('.pic1').style.transition="0.4s";
-            document.querySelector('.more').innerHTML='MORE';
+            
             document.querySelector('.net').innerHTML='read more';
             document.querySelector('.content').display="block";
-            document.querySelector('.content').style.transition="0.4s";
+            // document.querySelector('.pic1').style.display="none";
+            // document.querySelector('.pic1').style.transition="0.4s";
+            document.querySelector('.more').innerHTML='MORE';
+            // document.querySelector('.content').style.transition="0.4s";
             document.querySelector('.nextm').style.opacity=1;
-            document.querySelector('.nextm').style.transition="0.4s";
+            // document.querySelector('.nextm').style.transition="0.4s";
+       window.scrollTo({top: 0, behavior: 'smooth'});
            
         }
         else{
             document.querySelector('.pic1').style.display="block";
-            document.querySelector('.pic1').style.transition="0.4s";
+            // document.querySelector('.pic1').style.transition="0.4s";
             document.querySelector('.more').innerHTML='LESS';
             document.querySelector('.net').innerHTML='read less';
             document.querySelector('.content').display="none";
-            document.querySelector('.content').style.transition="0.4s";
+            // document.querySelector('.content').style.transition="0.4s";
             document.querySelector('.nextm').style.opacity=0.01;
-            document.querySelector('.nextm').style.transition="0.4s";
-            $('html,body').animate({ scrollTop: $(document).height() }, 1000);
+            // document.querySelector('.nextm').style.transition="0.4s";
+            // $('html,body').animate({ scrollTop: $(document).height() }, 100);
+            window.scrollTo({top: $(document).height(), behavior: 'smooth'});
         }
         
     }
