@@ -594,7 +594,7 @@ li:hover{
     border: 1px solid red;
 }
 
-@media only screen and (max-width:450px){
+@media only screen and (max-width:1024px){
     .content{
         position: absolute;
         left:0%;
