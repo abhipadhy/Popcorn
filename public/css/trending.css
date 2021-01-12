@@ -88,6 +88,7 @@ h2{
     border:none;
     outline:none;
     bottom:5%;
+    font-family: 'Poppins', sans-serif;
     left: 7%;
     width: 30%;
     height: 3%;
@@ -98,6 +99,7 @@ h2{
     position: absolute;
     display: none;
     bottom:7%;
+    font-family: 'Poppins', sans-serif;
     right: 7%;
     color: #ffffff;
     transition: 0.4s;
@@ -125,7 +127,6 @@ img{
 }
 .foot1:hover{
     color: #b6362d;
-    cursor: pointer;
     transition: 0.4s;
 }
 
@@ -398,6 +399,7 @@ iframe{
     text-transform: uppercase;
     text-align: center;
     font-weight: 500;
+    font-family: 'Poppins', sans-serif;
     padding: 1%;
     position: absolute;
     bottom: 5%;
