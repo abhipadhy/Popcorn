@@ -22,9 +22,9 @@
         <h1 id="mname" style="text-transform: uppercase;">SEARCH</h1>
         
         <p id="cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aliquid quos quisquam odit illo alias? Porro recusandae eius facere harum fuga nostrum excepturi modi neque, et quas rerum minus molestiae!</p>
-        <div class="foot1" onclick="clck()" style="display: none;">
+        <button class="foot1" onclick="clck()" style="display: none; outline: none; background-color: transparent;border: none;">
             <span class="foote">read &nbsp;</span><span class="more">more</span>
-        </div>
+        </button>
         <ul >
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li>HOME &nbsp;&nbsp;</li></a>
             <li id="genre" onclick="droplist()" >GENRE &nbsp;&nbsp;</li>
@@ -81,7 +81,7 @@
         </div>
         <p class="pcon">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem facere est possimus voluptas ut laudantium, ipsum iste laboriosam aliquid, ipsam quaerat minus? Eius autem beatae vitae quam soluta? Nobis, error!</p>
         <iframe src="https://www.youtube.com/embed/" style="display: none;"></iframe>
-        <div class="net" style="display: none;">watch on netflix</div>
+        <div class="net" style="display: none; outline: none;border: none;" onclick="clck()">read more</div>
         <div class="prime">watch on prime</div>
     </div>
     <!-- <div class="cursor"></div> -->
@@ -288,15 +288,34 @@
     function clck(){
         var flag = document.querySelector('.more').innerHTML;
         if(flag === 'LESS'){
+            async function f() {
+                document.querySelector('.net').innerHTML='read more';
+                document.querySelector('.content').display="block";
+                document.querySelector('.more').innerHTML='MORE';
+                document.querySelector('.net').disabled=true;
+                document.querySelector('.foot1').disabled=true;
+               $('html,body').animate({ scrollTop: 0}, 1000);
+
+
+            let promise = new Promise((resolve, reject) => {
+
+                setTimeout(() => resolve("done!"), 1000)
+            });
+
+            let result = await promise; 
+            document.querySelector('.net').disabled=false;
+            document.querySelector('.foot1').disabled=false;
             document.querySelector('.pic1').style.display="none";
-            document.querySelector('.pic1').style.transition="0.4s";
-            document.querySelector('.more').innerHTML='MORE';
             
+            }
+
+            f();           
         }
         else{
             document.querySelector('.pic1').style.display="block";
-            document.querySelector('.pic1').style.transition="0.4s";
             document.querySelector('.more').innerHTML='LESS';
+            document.querySelector('.net').innerHTML='read less';
+            document.querySelector('.content').display="none";
             $('html,body').animate({ scrollTop: $(document).height() }, 1000);
         }
         
