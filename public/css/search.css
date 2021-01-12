@@ -592,12 +592,23 @@ li:hover{
 
 @media only screen and (max-width:450px){
     .content{
-        display:none;
-        width: 0%;
+        position: absolute;
+        left:0%;
+        top:100%;
+        width: 100%;
+        height:110%;
+        background-color: rgb(27,27,27);
     }
 
     .pic{
         width: 100%;
+    }
+    .pic1{
+        top:209%;
+        transition: 0.4s;
+    }
+    #des{
+        margin-top: 7%;
     }
 
     ul{
@@ -605,17 +616,20 @@ li:hover{
         padding-left: 12%;
     }
 
+    .circle{
+        display: none;
+    }
+   
+
     .foot1{
         bottom: 15%;
-        left: 35%;
-        right: 35%;
+        left: 12%;
     }
-
     .pic1{
         width:100%;
     }
     h1{
-        font-size:30px ;
+        font-size:27px ;
     }
 }
 
@@ -623,5 +637,12 @@ li:hover{
     ul{
         left: 0%;
         padding-left:7%;
+    }
+
+    .foot1{
+        bottom: 15%;
+        left: 35%;
+        right: 35%;
+        width: max-content;
     }
 }
