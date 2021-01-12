@@ -381,6 +381,7 @@
     function clck(){
         var flag = document.querySelector('.more').innerHTML;
         if(flag === 'LESS'){
+            window.scrollTo({top: 0, behavior: 'smooth'});
             document.querySelector('.pic1').style.display="none";
             document.querySelector('.pic1').style.transition="0.4s";
             document.querySelector('.more').innerHTML='MORE';
@@ -389,7 +390,7 @@
             document.querySelector('.content').style.transition="0.4s";
             document.querySelector('.nextm').style.opacity=1;
             document.querySelector('.nextm').style.transition="0.4s";
-            window.scrollTo({top: 0, behavior: 'smooth'});
+           
         }
         else{
             document.querySelector('.pic1').style.display="block";

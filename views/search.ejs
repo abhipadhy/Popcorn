@@ -278,7 +278,7 @@
                 }, 500)
             })
 </script>
-
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
 
 
@@ -288,11 +288,13 @@
             document.querySelector('.pic1').style.display="none";
             document.querySelector('.pic1').style.transition="0.4s";
             document.querySelector('.more').innerHTML='MORE';
+            
         }
         else{
             document.querySelector('.pic1').style.display="block";
             document.querySelector('.pic1').style.transition="0.4s";
             document.querySelector('.more').innerHTML='LESS';
+            $('html,body').animate({ scrollTop: $(document).height() }, 1000);
         }
         
     }
