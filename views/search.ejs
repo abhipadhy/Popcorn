@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/search.css">
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
-<body onload="ldata()">
+<body>
     <div class="pic">
         <div class="head" >
             <span class="heading">Search &nbsp;</span><span class="line">| &nbsp;</span><span class="brand" style="display: none;"></span>  
@@ -88,6 +88,19 @@
 </body>
 
 <script>
+     function ldata(){
+        console.log(`search item : <%= q %> `);
+        if(`<%= q %>`){
+            
+            document.querySelector('.pcon').style.display="none";
+            document.querySelector('.net').style.display="block";
+            document.querySelector('.info').style.display="block";
+            document.querySelector('.foot1').style.display="block";
+            data(`<%= q %> `);
+        }
+    }
+
+    window.onload = ldata;
     function droplist(){
         var drop = document.querySelector('.dropdown');
         var style = window.getComputedStyle(drop);
@@ -117,18 +130,7 @@
         }
     }
 
-    function ldata(){
-        console.log(`search item : <%= q %> `);
-        if(`<%= q %>`){
-            
-            document.querySelector('.pcon').style.display="none";
-            document.querySelector('.net').style.display="block";
-            document.querySelector('.info').style.display="block";
-            document.querySelector('.foot1').style.display="block";
-            data(`<%= q %> `);
-        }
-    }
-
+   
     function data(ans){
 
         var vid ='';
