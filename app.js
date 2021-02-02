@@ -36,14 +36,15 @@ app.get('/',function(req,res){
 
 app.post('/',function(req,res){
     var query = req.body.query;
-    console.log('search item : ' + query);
     res.render("search.ejs",{key:process.env.APIKEY,q:query});
 });
 
-app.get('/404',function(req,res){
-    res.render("404.ejs");
-});
 
 app.get('/genre',function(req,res){
     res.render("genre.ejs",{key:process.env.APIKEY});
 });
+
+app.get('*', function(req, res){
+    console.log('page not found');
+    res.render("404.ejs");
+  });
