@@ -37,7 +37,7 @@ app.get('/',function(req,res){
 app.post('/',function(req,res){
     var query = req.body.query;
     console.log(query);
-    res.redirect("/search",{key:process.env.APIKEY,q:query});
+    res.render("search.ejs",{key:process.env.APIKEY,q:query});
 });
 
 

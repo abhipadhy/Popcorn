@@ -88,19 +88,19 @@
 </body>
 
 <script>
-    //  function ldata(){
-    //     console.log(`search item : <);
-    //     if(){
+     function ldata(){
+        console.log(`search item : <%= q %>`);
+        if(`<%= q %>`){
             
-    //         document.querySelector('.pcon').style.display="none";
-    //         document.querySelector('.net').style.display="block";
-    //         document.querySelector('.info').style.display="block";
-    //         document.querySelector('.foot1').style.display="block";
-    //         data( );
-    //     }
-    // }
+            document.querySelector('.pcon').style.display="none";
+            document.querySelector('.net').style.display="block";
+            document.querySelector('.info').style.display="block";
+            document.querySelector('.foot1').style.display="block";
+            data( `<%= q %>`);
+        }
+    }
 
-    // window.onload = ldata;
+    window.onload = ldata;
     function droplist(){
         var drop = document.querySelector('.dropdown');
         var style = window.getComputedStyle(drop);
