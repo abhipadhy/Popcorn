@@ -633,6 +633,16 @@ li:hover{
         margin-bottom:17%;
         height: 350px;
     }
+
+    .squery{
+        top:63%;
+        left:20%;
+        width:60%;
+    }
+
+    .squery button{
+        width:100%;
+    }
 }
 
 @media only screen and (max-height:600px){
