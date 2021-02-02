@@ -640,6 +640,15 @@ li:hover{
         width:60%;
     }
 
+    .squery input{
+        border: none;
+        opacity:0.5;
+        
+    }
+
+    .squery input::placeholder{
+        font-size: 78%;
+    }
     .squery button{
         width:100%;
     }

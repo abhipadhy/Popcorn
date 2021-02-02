@@ -306,6 +306,10 @@ iframe{
         height: 10%;
     }
 
+    .squery input::placeholder{
+        font-size: 78%;
+    }
+
     ul{
         left:0%;
     }
