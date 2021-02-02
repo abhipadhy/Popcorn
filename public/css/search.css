@@ -477,11 +477,9 @@ li:hover{
 }
 
 .actors{
-    margin-left:7% ;
-    margin-right:10% ;
-    width: fit-content;
-    height: fit-content;
-    display:  flex;
+    margin-left: 5%;
+    width:100%;
+    height: max-content;
 }
 
 .card p{
@@ -494,19 +492,16 @@ li:hover{
     background-size:cover;
     background-position: 50% 50%;
     padding: 2%;
-    width: 30%;
+    width: 18%;
     text-align: center ;
     font-size: 70%;
     color: #d7d8d7;
-    margin: 3%;
-    margin-right: 1%;
+    margin: 2%;
     text-transform: uppercase;
     height: 250px;
     border: 3px solid #D7D8D7;
     box-sizing: border-box;
 }
-
-
 
 /* width */
 ::-webkit-scrollbar {
@@ -590,7 +585,7 @@ li:hover{
     border: 1px solid red;
 }
 
-@media only screen and (max-width:450px){
+@media only screen and (max-width:1024px){
     .content{
         position: absolute;
         left:0%;
@@ -630,6 +625,13 @@ li:hover{
     }
     h1{
         font-size:27px ;
+    }
+
+    .card{
+        width: 80%;
+        margin-left:6%;
+        margin-bottom:17%;
+        height: 350px;
     }
 }
 
