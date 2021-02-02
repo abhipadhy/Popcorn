@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/search.css">
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
-<body >
+<body onload="ldata()">
     <div class="pic">
         <div class="head" >
             <span class="heading">Search &nbsp;</span><span class="line">| &nbsp;</span><span class="brand" style="display: none;"></span>  
@@ -116,11 +116,23 @@
             document.getElementById('search').value='';
         }
     }
+
+    function ldata(){
+        console.log(`search item : <%= q %> `);
+        if(`<%= q %>`){
+            
+            document.querySelector('.pcon').style.display="none";
+            document.querySelector('.net').style.display="block";
+            document.querySelector('.info').style.display="block";
+            document.querySelector('.foot1').style.display="block";
+            data(`<%= q %> `);
+        }
+    }
+
     function data(ans){
 
         var vid ='';
         var imga='';
-        var url1 = 'https://yts.mx/api/v2/list_movies.json?query_term='+ans;
         
        
         // var url1 ='https://customsearch.googleapis.com/customsearch/v1?cx=0f9e2df3020e49a58&imgSize=large&imgType=photo&num=1&q='+ans+'&searchType=image&key=AIzaSyC3Bg9i3odWhlqKCHEu2Q_2-w6Qh9NLj3E';

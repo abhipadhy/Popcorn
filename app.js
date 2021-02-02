@@ -33,6 +33,13 @@ app.get('/',function(req,res){
     res.render("home.ejs",{key:process.env.APIKEY});
 });
 
+
+app.post('/',function(req,res){
+    var query = req.body.query;
+    console.log('search item : ' + query);
+    res.render("search.ejs",{key:process.env.APIKEY,q:query});
+});
+
 app.get('/404',function(req,res){
     res.render("404.ejs");
 });
