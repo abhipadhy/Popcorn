@@ -1,43 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to Popcorn</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/genre.css">
-    <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
-</head>
-<body >
-    <div class="left">
-        <a href='/' class="logo"></a><br><br>
-        <ul>
-            <a href="/" style="text-decoration: none; color: #d7d8d7;"><li >HOME &nbsp;&nbsp;</li></a>
-            <li style="color: #b6362d;" >GENRE &nbsp;&nbsp;</li>
-            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
-            <a href="/search"><li id="search">SEARCH</li></a>
-        </ul>
-        <br><br><br><br>
-
-        <div class="card" id="card0"></div>
-        <div class="card" id="card1"></div>
-        <div class="card" id="card3"></div>
-        <div class="card" id="card4"></div>
-        <div class="card" id="card5"></div>
-    </div>
-
-    <div class="right" style="display: none;">
-        <div class="watch">genre</div>
-        <div class="pic"></div>
-        <div class="rating">
-            <img src="/assets/imdb.png" alt="" style="width: 10%;">
-            <h4 style="position: absolute; top:0%; left:12%">8.5/10</h4>
-        </div>
-        <h1>JOKER</h1>
-        <h4>2nd october 2019</h4>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo consequuntur similique nam labore ullam voluptatum, adipisci eius natus quam reprehenderit et ipsa neque consectetur voluptas excepturi cupiditate provident ipsum. Inventore!</p>
-        <a href=""><button>READ MORE</button></a>
-    </div>
-</body>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,13 +17,10 @@
             <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
             <a href="/search"><li id="search">SEARCH</li></a>
         </ul>
-        <br><br><br><br> <br><br><br><br>
+        <br><br><br>
         <div class="cont1">
 
         </div>
-
-       
-     
     </div>
 
     <div class="right">
@@ -80,7 +37,6 @@
     </div>
   
 </body>
-</html>
 <script>
     window.onload = disp(28);
     function disp(id){
@@ -96,10 +52,6 @@
                     document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${res.results[i].poster_path}')`;
                    console.log(res.results[i].original_title)
                }
-            })};
-                            
-                        
-  
-  
+            })}; 
 </script>
-
+</html>
