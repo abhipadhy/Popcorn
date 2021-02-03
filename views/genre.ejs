@@ -39,11 +39,67 @@
     </div>
 </body>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Popcorn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/genre.css">
+    <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
+</head>
+<body >
+    <div class="left">
+        <a href='/' class="logo"></a><br><br>
+        <ul>
+            <a href="/" style="text-decoration: none; color: #d7d8d7;"><li >HOME &nbsp;&nbsp;</li></a>
+            <li style="color: #b6362d;" >GENRE &nbsp;&nbsp;</li>
+            <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
+            <a href="/search"><li id="search">SEARCH</li></a>
+        </ul>
+        <br><br><br><br> <br><br><br><br>
+        <div class="cont1">
+
+        </div>
+
+       
+     
+    </div>
+
+    <div class="right">
+        <div class="watch">genre</div>
+        <div class="pic"></div>
+        <div class="rating">
+            <img src="/assets/imdb.png" alt="" style="width: 10%;">
+            <h4 style="position: absolute; top:0%; left:12%">8.5/10</h4>
+        </div>
+        <h1>JOKER</h1>
+        <h4>2nd october 2019</h4>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo consequuntur similique nam labore ullam voluptatum, adipisci eius natus quam reprehenderit et ipsa neque consectetur voluptas excepturi cupiditate provident ipsum. Inventore!</p>
+        <a href=""><button>READ MORE</button></a>
+    </div>
+  
+</body>
+</html>
 <script>
-    document.querySelector('.card').addEventListener('click',function(){
-        document.querySelector('.left').style.width="65%";
-        document.querySelector('.left').style.width="65%";
-        document.querySelector('.right').style.display="block";
-    });
+    window.onload = disp(28);
+    function disp(id){
+        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`)
+            .then(response => response.json())
+            .then(
+             function(res){
+
+              for(let i=0;i<20;i++){
+                document.querySelector('.cont1').innerHTML+=` <div class="card" id="card${i}" >
+                    
+                    </div>`;
+                    document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${res.results[i].poster_path}')`;
+                   console.log(res.results[i].original_title)
+               }
+            })};
+                            
+                        
+  
+  
 </script>
 
