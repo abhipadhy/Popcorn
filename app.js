@@ -21,7 +21,7 @@ app.listen(port,process.env.IP,function(){
 });
 
 app.get('/search',function(req,res){
-        res.render("search.ejs",{key:process.env.APIKEY,q:undefined});
+        res.render("search.ejs",{key:process.env.APIKEY,q:undefined,p:1});
 });
 
 app.get('/trending',function(req,res){
@@ -35,7 +35,7 @@ app.get('/',function(req,res){
 app.post('/',function(req,res){
     var query = req.body.query;
     console.log(query);
-    res.render("search.ejs",{key:process.env.APIKEY,q:query});
+    res.render("search.ejs",{key:process.env.APIKEY,q:query,p:2});
 });
 
 
