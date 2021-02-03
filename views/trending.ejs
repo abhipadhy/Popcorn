@@ -96,6 +96,7 @@
 
 
 <script>
+
     function droplist(){
         var drop = document.querySelector('.dropdown');
         var style = window.getComputedStyle(drop);
@@ -131,6 +132,7 @@
         console.log('flag : ' + flag);
         if(flag ==='LESS'){
             return;
+            
         } 
         else if(flag ==='MORE'){
         
@@ -138,6 +140,7 @@
         var ans=0
         document.querySelector('.trendnumber').style.color="ffffff";
         document.querySelector('.foot1').disabled=false;
+        
         document.querySelector('.foot1').style.opacity=1;
         document.querySelector('.foot1').style.cursor='pointer';
         document.querySelector('.pcon').style.display='none';
@@ -275,30 +278,10 @@
                         
                     }
                     });// then ends here
-                   
-                    
-                    
+                              
         }
-       
-            
-             
-                    
-                
+                      
         }
-
-
-    
-       
-        // var url1 ='https://customsearch.googleapis.com/customsearch/v1?cx=0f9e2df3020e49a58&imgSize=large&imgType=photo&num=1&q='+ans+'&searchType=image&key=AIzaSyC3Bg9i3odWhlqKCHEu2Q_2-w6Qh9NLj3E';
-        // fetch(url1)
-        // .then(response => response.json())
-        // .then(function (data){
-        //     iid  = data.items[0].link;
-        //     console.log(iid);
-        //     document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
-            
-        // });
-
 
                     var myHeaders = new Headers();
             myHeaders.append("x-rapidapi-key", "18fbb309efmshfe01f93d20cb9c4p127560jsn4f265c06e2ff");
@@ -368,7 +351,7 @@
     function clck(){
         var flag = document.querySelector('.more').innerHTML;
         if(flag === 'LESS'){
-            
+            document.querySelector('.net').disabled=false;
             async function f() {
                 document.querySelector('.content').display="block";
                 // document.querySelector('.pic1').style.transition="0.4s";
@@ -395,6 +378,7 @@
                
         }
         else{
+            document.querySelector('.net').disabled=true;
             document.querySelector('.pic1').style.display="block";
             // document.querySelector('.pic1').style.transition="0.4s";
             document.querySelector('.more').innerHTML='LESS';

@@ -515,6 +515,17 @@ li:hover{
     box-sizing: border-box;
 }
 
+button:disabled,
+button[disabled]{
+  cursor: not-allowed;
+}
+
+
+.net:disabled{
+    cursor:not-allowed;
+    opacity: 0.3;
+    background-color: #b6362d;
+}
 
 
 /* width */
