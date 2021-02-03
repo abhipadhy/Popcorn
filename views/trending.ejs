@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/css/trending.css">
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
-<body  onkeydown="data()" id='bodyi'>
+<body  onkeydown="data()" id='bodyi' onload="initial()">
+    <div id="loader" class="center"></div> 
     <div class="pic" >
         <div class="head">
             <span class="heading">trending &nbsp;</span><span class="line">| &nbsp;</span><span class="brand" style="display: none;"></span>
@@ -94,6 +95,37 @@
     <!-- <div class="cursor"></div> -->
 </body>
 
+<script>
+    document.onreadystatechange = function() { 
+    if (document.readyState !== "complete") { 
+        document.querySelector("body").style.visibility = "hidden"; 
+        document.querySelector("#loader").style.visibility = "visible"; 
+          
+    } else { 
+        setTimeout(() => {
+            console.log('waiting');
+            document.querySelector("#loader").style.display = "none";       
+              document.querySelector("body").style.visibility = "visible";
+        }, 1000);
+        
+    } 
+}; 
+</script>
+
+
+<script>
+    function initial(){
+        var index = Math.floor(Math.random()*20);
+    
+        fetch('https://api.themoviedb.org/3/trending/all/day?api_key=<%= key %>')
+        .then(response =>response.json() )
+        .then(function (data){
+            var image = `https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}`;
+            document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${image})`;
+        });
+
+    };
+</script>
 
 <script>
 
