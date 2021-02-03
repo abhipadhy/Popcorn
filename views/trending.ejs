@@ -433,13 +433,21 @@
     var image = document.querySelector('.pic');
     var scroll_position = window.scrollY;
 
-    if (scroll_position >450) {
+    if (scroll_position >390) {
       content.style.backgroundColor="#1b1b1b";
       content.style.transition='0.4s';
       document.querySelector('.des').style.opacity="0.9";
       document.querySelector('.cast').style.opacity="0.9";
       document.querySelector('.cast').style.transition='0.4s';
       document.querySelector('.des').style.transition='0.4s';
+      document.querySelector('#card1').style.opacity="0.9";
+      document.querySelector('#card2').style.opacity="0.9";
+      document.querySelector('#card3').style.opacity="0.9";
+      document.querySelector('#card4').style.opacity="0.9";
+      document.querySelector('#card1').style.transition='1s';
+      document.querySelector('#card2').style.transition='3s';
+      document.querySelector('#card3').style.transition='5s';
+      document.querySelector('#card4').style.transition='7s';
     } 
 
     else if (scroll_position >20){
@@ -456,6 +464,14 @@
         document.querySelector('.des').style.transition='0.4s';
         document.querySelector('.cast').style.opacity="0";
         document.querySelector('.cast').style.transition='0.4s';
+        document.querySelector('#card1').style.opacity="0";
+        document.querySelector('#card2').style.opacity="0";
+        document.querySelector('#card3').style.opacity="0";
+        document.querySelector('#card4').style.opacity="0";
+        document.querySelector('#card1').style.transition='0.4s';
+        document.querySelector('#card2').style.transition='0.4s';
+        document.querySelector('#card3').style.transition='0.4s';
+        document.querySelector('#card4').style.transition='0.4s';
     }
     
   });
