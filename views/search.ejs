@@ -82,6 +82,7 @@
         </div>
         <p class="pcon">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem facere est possimus voluptas ut laudantium, ipsum iste laboriosam aliquid, ipsam quaerat minus? Eius autem beatae vitae quam soluta? Nobis, error!</p>
         <iframe src="https://www.youtube.com/embed/" style="display: none;"></iframe>
+        <div class="alt"></div>
         <div class="net" style="display: none; outline: none;border: none;" onclick="clck()">read more</div>
         <div class="prime">watch on prime</div>
     </div>
@@ -175,19 +176,18 @@
                                 
                                if(vid){
                                 if (vid ===''){
-                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'); 
-                                    document.querySelector('iframe').style.display="block";
+                                    document.querySelector('iframe').style.display="none";
+                                    document.querySelector('.alt').style.display="block"; 
                                 }
                                 else{
-                                    console.log('vid : ' + vid);
-                            
                                     document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
                                     document.querySelector('iframe').style.display="block";
                                 }
                                }
                                else{
-                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'); 
-                                    document.querySelector('iframe').style.display="block";
+                                    document.querySelector('iframe').style.display="none";
+                                    document.querySelector('.alt').style.display="block"; 
+                                    
                                }
                                 
                             

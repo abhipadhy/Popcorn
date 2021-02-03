@@ -404,6 +404,19 @@ iframe{
     animation: v2 2s ease;
 }
 
+.alt{
+    background:url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1612353863/Group_14_zwwgdn.png');
+    display: none;
+    border: none;
+    background-position: 50% 50%;
+    background-size: cover;
+    margin-left: 10%;
+    margin-right: 5%;
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    height: 35%;
+}
 .net{
     display: none;
     width: 78%;
