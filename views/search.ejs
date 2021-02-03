@@ -164,9 +164,18 @@
                             fetch(`https://api.themoviedb.org/3/movie/${res.results[0].id}/videos?api_key=<%= key %>&language=en-US`)
                             .then(response => response.json())
                             .then(function (data){
-                                vid = data.results[0].key;
+                                if(data.results[0])
+                                {
+                                    vid = data.results[0].key;
+                                    console.log(vid);
+                                }
+                                else{
+                                    vid = undefined;
+                                }
+                                
+                               if(vid){
                                 if (vid ===''){
-                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'); 
                                     document.querySelector('iframe').style.display="block";
                                 }
                                 else{
@@ -175,6 +184,11 @@
                                     document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
                                     document.querySelector('iframe').style.display="block";
                                 }
+                               }
+                               else{
+                                    document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'); 
+                                    document.querySelector('iframe').style.display="block";
+                               }
                                 
                             
                                 
