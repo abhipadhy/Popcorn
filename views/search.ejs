@@ -86,17 +86,19 @@
     </div>
     <!-- <div class="cursor"></div> -->
 </body>
-
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
+    var query = `<%=q %>`;
+    console.log(query);
+    
      function ldata(){
-        console.log(`search item : <%= q %>`);
-        if(`<%= q %>`){
+        if(query){
             
             document.querySelector('.pcon').style.display="none";
             document.querySelector('.net').style.display="block";
             document.querySelector('.info').style.display="block";
             document.querySelector('.foot1').style.display="block";
-            data( `<%= q %>`);
+            data(query);
         }
     }
 
@@ -279,23 +281,6 @@
 </script>
 
 
-
-<script>
-            const cursor = document.querySelector('.cursor');
-
-                document.addEventListener('mousemove', e => {
-                    cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
-                })
-
-            document.addEventListener('click', () => {
-                cursor.classList.add("expand");
-
-                setTimeout(() => {
-                    cursor.classList.remove("expand");
-                }, 500)
-            })
-</script>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
 
 

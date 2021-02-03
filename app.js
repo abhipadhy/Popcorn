@@ -13,8 +13,6 @@ app.use(require("express-session")({
 	saveUninitialized: false
 }));
 
-
-
 app.use(express.json({limit: '50mb'}));
 app.use(bodyparser.urlencoded({extended:true,limit: '50mb'}));
 var port=process.env.PORT || 3000;
@@ -23,7 +21,7 @@ app.listen(port,process.env.IP,function(){
 });
 
 app.get('/search',function(req,res){
-        res.render("search.ejs",{key:process.env.APIKEY});
+        res.render("search.ejs",{key:process.env.APIKEY,q:undefined});
 });
 
 app.get('/trending',function(req,res){
