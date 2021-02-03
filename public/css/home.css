@@ -53,6 +53,7 @@ button{
     color: #d7d8d7;
     font-weight:700;
     padding: 3%;
+    outline:none;
     width:96%;
     transition: 0.4s;
 }
