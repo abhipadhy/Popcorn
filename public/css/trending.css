@@ -94,6 +94,10 @@ h2{
     text-transform: uppercase;
     text-align: center;
 }
+
+#lhead{
+    text-align: center;
+}
 .head{
     margin-left: 7%;
     margin-top: 3%;
