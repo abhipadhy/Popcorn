@@ -9,6 +9,7 @@
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
 <body>
+    <div id="loader" class="center"></div> 
     <div class="pic">
         <div class="head" >
             <span class="heading">Search &nbsp;</span><span class="line">| &nbsp;</span><span class="brand" style="display: none;"></span>  
@@ -88,7 +89,24 @@
     </div>
     <!-- <div class="cursor"></div> -->
 </body>
+<script>
+    document.onreadystatechange = function() { 
+    if (document.readyState !== "complete") { 
+        document.querySelector("body").style.visibility = "hidden"; 
+        document.querySelector("#loader").style.visibility = "visible"; 
+          
+    } else { 
+        setTimeout(() => {
+            console.log('waiting');
+            document.querySelector("#loader").style.display = "none";       
+              document.querySelector("body").style.visibility = "visible";
+        }, 1000);
+        
+    } 
+}; 
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
 <script>
     var query = `<%=q %>`;
     console.log(query);

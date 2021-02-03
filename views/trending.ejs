@@ -185,11 +185,10 @@
         console.log('ans :' +ans);
                     var array=[];
                     var idarray= [];
-                    fetch('https://api.themoviedb.org/3/trending/all/week?api_key=<%= key %>')
+                    fetch('https://api.themoviedb.org/3/trending/all/day?api_key=<%= key %>')
                     .then(response =>response.json() )
                     .then(function (data){
-                        console.log('data :' + Object.keys(data).length); 
-
+                     
                         for(var i=0;i< 20;i++){
                             var type =data.results[i].media_type;
                             console.log(type);
