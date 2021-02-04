@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/genre.css">
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
-<body >
+<body>
     <div class="left">
         <a href='/' class="logo"></a><br><br>
         <ul>
@@ -19,6 +19,22 @@
         </ul>
         <br><br><br>
         <div class="cont1">
+
+        </div>
+        <div class="footnav">
+
+            <button id="circle" style="color: white;"class="prev" onclick="prev()">
+                    <h2 style="text-align: center;margin:0;font-weight: 300;">&lt;</h2>
+            </button>
+            
+                                <p style="text-align: center;">
+                                    <span id="inner" style="color: #b6362d;">1</span> 
+                                    <span id="inner2">: 546</span>
+                                </p>
+
+            <button id="circle" style="color: white;" class="next" onclick="next()">
+                    <h2 style="text-align: center;margin:0;font-weight: 300;">&gt;</h2>
+            </button>
 
         </div>
     </div>
@@ -38,7 +54,7 @@
   
 </body>
 <script>
-    window.onload = disp(28);
+    window.onload = disp(53);
     function disp(id){
         fetch(`https://api.themoviedb.org/3/discover/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`)
             .then(response => response.json())
@@ -50,8 +66,41 @@
                     
                     </div>`;
                     document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${res.results[i].poster_path}')`;
-                   console.log(res.results[i].original_title)
                }
-            })}; 
+            })
+
+            var val = document.querySelector('#inner').innerText;
+            console.log(val);
+            if (val == '1'){
+                document.querySelector('.prev').disabled = true;
+            }
+        }; 
+   
+
+   function next(){ // to display next 20 results
+        var prev = document.querySelector('.prev').disabled;
+        if(prev === true){
+
+            document.querySelector('.prev').disabled=false;
+          
+        }
+        var val = Number(document.querySelector('#inner').innerText);
+        val= val +1;
+        document.querySelector('#inner').innerText = val;
+   }
+
+   function prev(){  //to display prev 20 results
+        var val = Number(document.querySelector('#inner').innerText);
+        if (val === 2){
+            document.querySelector('.prev').disabled=true;
+            val = val-1;
+            document.querySelector('#inner').innerText = val;
+        }
+        else{
+            val = val-1;
+            document.querySelector('#inner').innerText = val;
+        }
+       
+   }
 </script>
 </html>

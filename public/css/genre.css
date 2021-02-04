@@ -25,22 +25,71 @@ body,html{
 }
 .cont1{
     width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: center;
+    height:fit-content;
     margin-top: 5%;
+}
+
+.footnav{
+    width:100%;
+    justify-content: center;
+    vertical-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1% 0%;
+    height:max-content;
+    bottom: 0%;
+}
+
+.footnav p{
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+#circle{
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    justify-content: center;
+    vertical-align: center;
+   width: 35px;
+   margin-top: 1%;
+   height:35px;
+   transition: 0.3s;
+   background-color: #222222;
+}
+
+
+.prev:disabled{
+    cursor:not-allowed;
+    opacity: 0.3;
+    background-color: #222222;
+}
+
+#circle:hover{
+    background-color: #00A8E1;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .card{
     background-image: linear-gradient(180deg, rgba(10, 10, 10, 0) 33.99%, #0A0A0A 100%),url(/assets/joa.jpg);
     background-size:cover;
-    float: left;
     background-position: 50% 50%;
     padding: 2%;
     width: 20%;
+    justify-content: center;
+    vertical-align: center;
     text-align: center ;
     color: #d7d8d7;
-    margin-left: 3.5%;
-    margin-right: 0.5%;
+    margin: 2%;
+    /* margin-left: 1.5%;
+    margin-right: 1.5%;
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 2%; */
     text-transform: uppercase;
     height: 350px;
     border: 3px solid #D7D8D7;
@@ -160,64 +209,3 @@ p{
   ::-webkit-scrollbar-thumb:hover {
     background: #00A8E1; 
   }
- /* custom cursor */
- .cursor {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    position: absolute;
-    transition-duration: 120ms;
-    transition-timing-function: ease-out;
-    animation: cursorAnim .5s infinite alternate;
-    pointer-events: none;
-}
-
-.cursor::after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    border: 8px solid #c5c3c3;
-    border-radius: 50%;
-    opacity: .5;
-    top: -8px;
-    left: -8px;
-    animation: cursorAnim2 .5s infinite alternate;
-}
-
-@keyframes cursorAnim {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(.7);
-    }
-}
-
-@keyframes cursorAnim2 {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(.4);
-    }
-}
-
-@keyframes cursorAnim3 {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(3);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
-}
-
-.expand {
-    animation: cursorAnim3 .5s forwards;
-    border: 1px solid red;
-}
