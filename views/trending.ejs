@@ -80,7 +80,7 @@
         <div class="watch">trending</div>
         <div class="info" style="display: none;">
             <span class="tit">name : &nbsp;</span><span style="font-weight: 200 ; font-size: 80%;" id="movie" ></span><br>
-            <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime"></span><br>
+            <!-- <span class="tit">runtime : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="runtime"></span><br> -->
             <span class="tit">release date : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="release"></span><br>
             <span class="tit">popularity : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="pop"></span><br>
             <span class="tit">media type : &nbsp;</span><span style="font-weight: 200;font-size: 80%;" id="media"></span><br>
@@ -128,6 +128,42 @@
 </script>
 
 <script>
+     function formatDate(d) 
+        {
+          var date = new Date(d);
+
+         if ( isNaN( date .getTime() ) ) 
+         {
+            return d;
+         }
+         else
+        {
+          
+          var month = new Array();
+          month[0] = "Jan";
+          month[1] = "Feb";
+          month[2] = "Mar";
+          month[3] = "Apr";
+          month[4] = "May";
+          month[5] = "Jun";
+          month[6] = "Jul";
+          month[7] = "Aug";
+          month[8] = "Sept";
+          month[9] = "Oct";
+          month[10] = "Nov";
+          month[11] = "Dec";
+
+          day = date.getDate();
+          
+          if(day < 10)
+          {
+             day = "0"+day;
+          }
+          
+          return    day  + " " +month[date.getMonth()] + " " + date.getFullYear();
+          }
+            
+         }
 
     function droplist(){
         var drop = document.querySelector('.dropdown');
@@ -251,8 +287,9 @@
                             document.getElementById('movie').innerText=res.results[0].title;
                             document.getElementById('mname').innerText=res.results[0].title;
                             document.getElementsByClassName('heading')[0].innerText=res.results[0].title;
-                            // document.getElementById('release').innerText=res.results[0].release_date;
-                            // document.getElementById('rdate').innerText=res.results[0].release_date;
+                            document.getElementById('release').innerText=formatDate(res.results[0].release_date);
+                            document.getElementById('rdate').innerText=formatDate(res.results[0].release_date);
+                       
                             }
                             else{ // for tv
                                 fetch(`https://api.themoviedb.org/3/tv/${res.results[0].id}/credits?api_key=<%= key %>&language=en-US`)
@@ -284,8 +321,8 @@
                                 document.getElementById('movie').innerText=res.results[0].name;
                             document.getElementById('mname').innerText=res.results[0].name;
                             document.getElementsByClassName('heading')[0].innerText=res.results[0].name;
-                            // document.getElementById('release').innerText=res.results[0].first_air_date;
-                            // document.getElementById('rdate').innerText=res.results[0].first_air_date;
+                            document.getElementById('release').innerText=formatDate(res.results[0].first_air_date);
+                            document.getElementById('rdate').innerText=formatDate(res.results[0].first_air_date);
                             }
                             
                             
@@ -314,48 +351,48 @@
                       
         }
 
-                    var myHeaders = new Headers();
-            myHeaders.append("x-rapidapi-key", "18fbb309efmshfe01f93d20cb9c4p127560jsn4f265c06e2ff");
-            myHeaders.append("x-rapidapi-host", "imdb-internet-movie-database-unofficial.p.rapidapi.com");
+            //         var myHeaders = new Headers();
+            // myHeaders.append("x-rapidapi-key", "18fbb309efmshfe01f93d20cb9c4p127560jsn4f265c06e2ff");
+            // myHeaders.append("x-rapidapi-host", "imdb-internet-movie-database-unofficial.p.rapidapi.com");
 
-            var requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-            redirect: 'follow'
-            };
+            // var requestOptions = {
+            // method: 'GET',
+            // headers: myHeaders,
+            // redirect: 'follow'
+            // };
 
-            fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/"+ans, requestOptions)
-            .then(response => response.json())
-            .then(
-             function(res){
-                 var id=res.titles[0].id;
-                                        var myHeaders = new Headers();
-                        myHeaders.append("x-rapidapi-key", "18fbb309efmshfe01f93d20cb9c4p127560jsn4f265c06e2ff");
-                        myHeaders.append("x-rapidapi-host", "imdb-internet-movie-database-unofficial.p.rapidapi.com");
+            // fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/"+ans, requestOptions)
+            // .then(response => response.json())
+            // .then(
+            //  function(res){
+            //      var id=res.titles[0].id;
+            //                             var myHeaders = new Headers();
+            //             myHeaders.append("x-rapidapi-key", "18fbb309efmshfe01f93d20cb9c4p127560jsn4f265c06e2ff");
+            //             myHeaders.append("x-rapidapi-host", "imdb-internet-movie-database-unofficial.p.rapidapi.com");
 
-                        var requestOptions = {
-                        method: 'GET',
-                        headers: myHeaders,
-                        redirect: 'follow'
-                        };
+            //             var requestOptions = {
+            //             method: 'GET',
+            //             headers: myHeaders,
+            //             redirect: 'follow'
+            //             };
 
-                        fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/"+id, requestOptions)
-                        .then(response => response.json())
-                        .then(result => {
-                            // document.getElementById('movie').innerText=result.title;
-                            // document.getElementById('mname').innerText=result.title;
-                            // document.getElementsByClassName('heading')[0].innerText=result.title;
-                            document.getElementById('runtime').innerText=result.length;
-                            document.getElementById('release').innerText=result.year;
-                            document.getElementById('rdate').innerText=result.year;
-                            document.getElementById('rating').innerText=result.rating +" / 10";
-                            // document.getElementById('des').innerText=result.plot;
+            //             fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/"+id, requestOptions)
+            //             .then(response => response.json())
+            //             .then(result => {
+            //                 // document.getElementById('movie').innerText=result.title;
+            //                 // document.getElementById('mname').innerText=result.title;
+            //                 // document.getElementsByClassName('heading')[0].innerText=result.title;
+            //                 document.getElementById('runtime').innerText=result.length;
+            //                 document.getElementById('release').innerText=result.year;
+            //                 document.getElementById('rdate').innerText=result.year;
+            //                 document.getElementById('rating').innerText=result.rating +" / 10";
+            //                 // document.getElementById('des').innerText=result.plot;
                             
-                        })
-                        .catch(error => console.log('error', error));
-             }
-             )
-            .catch(error => console.log('error', error));
+            //             })
+            //             .catch(error => console.log('error', error));
+            //  }
+            //  )
+            // .catch(error => console.log('error', error));
                     
 
                     var platform ='netflix';
