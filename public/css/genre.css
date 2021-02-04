@@ -55,8 +55,9 @@ body,html{
     width: 100%;
     height: 100%;
     height: max-content;
-
+    animation: leftview ease 2s;
 }
+
 .rating{
     position: absolute;
     top: 42%;
@@ -210,6 +211,16 @@ li:hover{
     top:0%;
     width: 35%;
     height: 100%;
+    animation: rightview ease-in 0.5s;
+}
+
+@keyframes rightview{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 .pic{
