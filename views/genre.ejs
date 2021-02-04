@@ -47,11 +47,11 @@
         <div class="pic" id='backdrop'></div>
         <div class="rating">
             <img src="/assets/imdb.png" alt="" style="width: 10%;">
-            <h4 style="position: absolute; top:0%; left:12%" id="rating">8.5/10</h4>
+            <h5 style="position: absolute; top:0%; left:12%;margin: 0;color: white;" id="rating"></h5>
         </div>
-        <h1 id="title">JOKER</h1>
-        <h4 id="r_date">2nd october 2019</h4>
-        <p id="overview">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo consequuntur similique nam labore ullam voluptatum, adipisci eius natus quam reprehenderit et ipsa neque consectetur voluptas excepturi cupiditate provident ipsum. Inventore!</p>
+        <h2 id="title"></h2>
+        <h5 id="r_date"></h5>
+        <p id="overview" style=" font-size:70%;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo consequuntur similique nam labore ullam voluptatum, adipisci eius natus quam reprehenderit et ipsa neque consectetur voluptas excepturi cupiditate provident ipsum. Inventore!</p>
         <a href=""><button id="read">READ MORE</button></a>
     </div>
   
@@ -146,7 +146,7 @@
     .then(data => data.json())
     .then(
         function(res){
-            document.getElementById(`backdrop`).style.backgroundImage= `linear-gradient(180deg, rgba(28, 28, 28, 0) 0%, rgba(28, 28, 28, 0.69) 79.06%, #1C1C1C 93.75%),url('https://image.tmdb.org/t/p/original${res.backdrop_path}')`;
+            document.getElementById(`backdrop`).style.backgroundImage= `linear-gradient(180deg, rgba(28, 28, 28, 30%)  53.99%, #1C1C1C 100%),url('https://image.tmdb.org/t/p/original${res.backdrop_path}')`;
             document.getElementById('r_date').innerText= formatDate(res.release_date);
             document.getElementById('overview').innerText=res.overview;
             document.getElementById('title').innerText=res.original_title;

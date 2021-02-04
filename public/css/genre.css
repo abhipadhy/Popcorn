@@ -245,7 +245,7 @@ li:hover{
     left:65%;
     top:0%;
     width: 35%;
-    height: max-content;
+    height: 100%;
     animation: rightview ease-in 0.5s;
 }
 
@@ -259,9 +259,9 @@ li:hover{
 }
 
 .pic{
-    background: linear-gradient(180deg, rgba(28, 28, 28, 0) 0%, rgba(28, 28, 28, 0.69) 79.06%, #1C1C1C 93.75%),url('/assets/joker.png');
+    background: linear-gradient(180deg, rgba(28, 28, 28, 0) 0%, ),url('/assets/joker.png');
     width:100%;
-    height: 50%;
+    height: 45%;
     background-size:cover ;
     background-position:50% 50% ;
 }
@@ -295,7 +295,7 @@ li:hover{
     top: 5%;
     transition: 0.4s;
 }
-h1{
+h2{
     text-align: center;
     color: #d7d8d7;
     padding: 0%;
@@ -304,7 +304,7 @@ h1{
     text-transform: uppercase;
 }
 
-h4{
+h5{
     text-align: center;
     color: #9c9c9c;
     font-weight: 400;
