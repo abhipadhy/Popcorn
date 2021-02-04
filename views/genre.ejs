@@ -12,15 +12,8 @@
 <body>
     <div id="loader" class="center"></div> 
     <div class="left">
-<<<<<<< HEAD
-
-        <a href='/'><img src="/assets/logo.png" alt="" class="logo1"></a>
-     
-        <ul>
-=======
         <a href='/' class="logo" style="display: none;"></a><br><br>
         <ul style="display: none;">
->>>>>>> 259c3e5a03d8258a4af8ee626610108bbbb34f93
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li >HOME &nbsp;&nbsp;</li></a>
             <li style="color: #b6362d;" >GENRE &nbsp;&nbsp;</li>
             <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
@@ -32,7 +25,7 @@
         </div>
         <div class="footnav">
 
-            <button id="circle" style="color:  rgb(218, 218, 218);"class="prev" onclick="prev()">
+            <button id="circle" style="color:  rgb(218, 218, 218);"class="prev" onclick="prev('<%=id%>')">
                     <h3 style="text-align: center;margin:0;font-weight: 300;">Prev</h3>
             </button>
             
@@ -41,7 +34,7 @@
                                     <span id="inner2"> 546</span>
                                 </p>
 
-            <button id="circle" style="color: rgb(218, 218, 218);" class="next" onclick="next()">
+            <button id="circle" style="color: rgb(218, 218, 218);" class="next" onclick="next('<%=id%>')">
                     <h3 style="text-align: center;margin:0;font-weight: 300;">Next</h2>
             </button>
 

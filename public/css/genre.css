@@ -71,7 +71,7 @@ body,html{
     justify-content:center;
     vertical-align: center;
     height:fit-content;
-    margin-top: 5%;
+  
     animation: cont1 ease-in-out 3s;
 }
 
@@ -220,9 +220,8 @@ body,html{
 ul{
     list-style: none;
     position: absolute;
-    top:5%;
-    left:34%;
-    width: max-content;
+  
+
 }
 
 li{
