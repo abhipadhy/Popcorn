@@ -245,7 +245,7 @@ li:hover{
     left:65%;
     top:0%;
     width: 35%;
-    height: 100%;
+    height: max-content;
     animation: rightview ease-in 0.5s;
 }
 
