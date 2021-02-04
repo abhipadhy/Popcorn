@@ -139,7 +139,7 @@
        
    }
 
- function right(){ // turns on the right div 
+ function right(id){ // turns on the right div 
     $(".left").animate({width: "65%"});
     document.querySelector('.right').style.display='block';
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=<%=key%>&language=en-US`)
