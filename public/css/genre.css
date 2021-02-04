@@ -50,12 +50,12 @@ body,html{
 }
 
 #circle{
-    border-radius: 50%;
+    border-radius: 4px;
     border: none;
     outline: none;
     justify-content: center;
     vertical-align: center;
-   width: 35px;
+   width: 7%;
    margin-top: 1%;
    height:35px;
    transition: 0.3s;

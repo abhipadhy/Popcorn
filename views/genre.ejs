@@ -23,17 +23,17 @@
         </div>
         <div class="footnav">
 
-            <button id="circle" style="color: white;"class="prev" onclick="prev()">
-                    <h2 style="text-align: center;margin:0;font-weight: 300;">&lt;</h2>
+            <button id="circle" style="color:  rgb(218, 218, 218);"class="prev" onclick="prev()">
+                    <h3 style="text-align: center;margin:0;font-weight: 300;">Prev</h3>
             </button>
             
                                 <p style="text-align: center;">
-                                    <span id="inner" style="color: #b6362d;">1</span> 
-                                    <span id="inner2">: 546</span>
+                                    <span id="inner" style="color: #b6362d;">1 </span>: 
+                                    <span id="inner2"> 546</span>
                                 </p>
 
-            <button id="circle" style="color: white;" class="next" onclick="next()">
-                    <h2 style="text-align: center;margin:0;font-weight: 300;">&gt;</h2>
+            <button id="circle" style="color: rgb(218, 218, 218);" class="next" onclick="next()">
+                    <h3 style="text-align: center;margin:0;font-weight: 300;">Next</h2>
             </button>
 
         </div>
@@ -54,13 +54,13 @@
   
 </body>
 <script>
-    window.onload = disp(53);
-    function disp(id){
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`)
+    window.onload = disp(28,1);
+    function disp(id,page){
+        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`)
             .then(response => response.json())
             .then(
              function(res){
-
+                document.querySelector('#inner2').innerText = res.total_pages;
               for(let i=0;i<20;i++){
                 document.querySelector('.cont1').innerHTML+=` <div class="card" id="card${i}" >
                     
@@ -84,8 +84,10 @@
             document.querySelector('.prev').disabled=false;
           
         }
+        
         var val = Number(document.querySelector('#inner').innerText);
         val= val +1;
+        disp(28,val);
         document.querySelector('#inner').innerText = val;
    }
 
@@ -94,11 +96,13 @@
         if (val === 2){
             document.querySelector('.prev').disabled=true;
             val = val-1;
+            disp(28,val);
             document.querySelector('#inner').innerText = val;
         }
         else{
             val = val-1;
             document.querySelector('#inner').innerText = val;
+            disp(28,val);
         }
        
    }
