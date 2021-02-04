@@ -56,6 +56,7 @@
 <script>
     window.onload = disp(28,1);
     function disp(id,page){
+        document.querySelector('.cont1').innerHTML=' ';
         fetch(`https://api.themoviedb.org/3/discover/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`)
             .then(response => response.json())
             .then(
