@@ -299,6 +299,16 @@ h3 span{
     width: 70%;
     height: 100%;
     transition: 0.4s;
+    animation: pic ease-in-out 2s;
+}
+
+@keyframes pic{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity:1;
+    }
 }
 
 .pic1{

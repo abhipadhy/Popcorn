@@ -6,21 +6,27 @@
     <title>Welcome to Popcorn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/genre.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
 <body>
     <div id="loader" class="center"></div> 
     <div class="left">
+<<<<<<< HEAD
 
         <a href='/'><img src="/assets/logo.png" alt="" class="logo1"></a>
      
         <ul>
+=======
+        <a href='/' class="logo" style="display: none;"></a><br><br>
+        <ul style="display: none;">
+>>>>>>> 259c3e5a03d8258a4af8ee626610108bbbb34f93
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li >HOME &nbsp;&nbsp;</li></a>
             <li style="color: #b6362d;" >GENRE &nbsp;&nbsp;</li>
             <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
             <a href="/search"><li id="search">SEARCH</li></a>
         </ul>
-        <br><br><br>
+        <br>
         <div class="cont1">
 
         </div>
@@ -43,6 +49,7 @@
     </div>
 
     <div class="right">
+        <h2 class="close" onclick="resize()"><i class="fas fa-times"></i></h2>
         <div class="watch">genre</div>
         <div class="pic"></div>
         <div class="rating">
@@ -52,7 +59,7 @@
         <h1>JOKER</h1>
         <h4>2nd october 2019</h4>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo consequuntur similique nam labore ullam voluptatum, adipisci eius natus quam reprehenderit et ipsa neque consectetur voluptas excepturi cupiditate provident ipsum. Inventore!</p>
-        <a href=""><button>READ MORE</button></a>
+        <a href=""><button id="read">READ MORE</button></a>
     </div>
   
 </body>
@@ -69,7 +76,7 @@
                 document.querySelector('#inner2').innerText = res.total_pages;
               for(let i=0;i<20;i++){
                 document.querySelector('.cont1').innerHTML+=` <div id="main${i}" class="main">
-                    <div class="card" id="card${i}"></div>
+                    <div class="card" id="card${i}" onClick="right()"></div>
                 <p id="title${i}" class="title"></p>
                 <p id="title2${i}" class="title2"></p></div>`;
                     document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${res.results[i].poster_path}')`;
@@ -82,6 +89,7 @@
             console.log(val);
             if (val == '1'){
                 document.querySelector('.prev').disabled = true;
+        
             }
 
             document.onreadystatechange = function() { 
@@ -101,34 +109,58 @@
         }; 
    
 
-   function next(){ // to display next 20 results
+   function next(id){ // to display next 20 results
+        document.querySelector('.left').style.width='100%';
+        document.querySelector('.right').style.display='none';
         var prev = document.querySelector('.prev').disabled;
         if(prev === true){
 
             document.querySelector('.prev').disabled=false;
+        
           
         }
         
         var val = Number(document.querySelector('#inner').innerText);
         val= val +1;
-        disp(28,val);
+        disp(Number(id),val);
         document.querySelector('#inner').innerText = val;
    }
 
-   function prev(){  //to display prev 20 results
+   function prev(id){  //to display prev 20 results
+        document.querySelector('.left').style.width='100%';
+        document.querySelector('.right').style.display='none';
         var val = Number(document.querySelector('#inner').innerText);
         if (val === 2){
             document.querySelector('.prev').disabled=true;
+     
             val = val-1;
-            disp(28,val);
+            disp(Number(id),val);
             document.querySelector('#inner').innerText = val;
         }
         else{
             val = val-1;
             document.querySelector('#inner').innerText = val;
-            disp(28,val);
+            disp(Number(id),val);
         }
        
    }
+
+ function right(){ // turns on the right div 
+    document.querySelector('.left').style.width='65%';
+    document.querySelector('.right').style.display='block';
+    var arr = document.querySelectorAll('.card');
+    arr.forEach(x => {
+        x.style.height="200px";
+    });
+ }
+
+ function resize(){ //resizes right div back to normal
+    document.querySelector('.left').style.width='100%';
+    document.querySelector('.right').style.display='none';
+    var arr = document.querySelectorAll('.card');
+    arr.forEach(x => {
+        x.style.height="300px";
+    });
+ } 
 </script>
 </html>

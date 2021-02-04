@@ -16,6 +16,23 @@ body,html{
     height: 40px; 
     animation: spin 2s linear infinite; 
 } 
+
+#read{
+    width: 88%;
+    height: 6%;
+    border: none;
+    color: white;
+     margin-left: 5%;
+    background-color: #b6362d;
+    transition: 0.3s;
+    outline:none;
+}
+
+#read:hover{
+    background-color:#00A8E1;
+    cursor: pointer;
+    transition: 0.3s;
+}
 @keyframes spin { 
     100% { 
         transform: rotate(360deg); 
@@ -38,9 +55,9 @@ body,html{
     width: 100%;
     height: 100%;
     height: max-content;
-    margin: 5% 0;
-
+    animation: leftview ease 2s;
 }
+
 .rating{
     position: absolute;
     top: 42%;
@@ -48,14 +65,25 @@ body,html{
     left: 38%;
 }
 .cont1{
-    width:100%;
+    width:fit-content;
     display:flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content:center;
     vertical-align: center;
     height:fit-content;
     margin-top: 5%;
+    animation: cont1 ease-in-out 3s;
 }
+
+@keyframes cont1{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
 .main{
     justify-content: center;
     vertical-align: center;
@@ -74,11 +102,26 @@ body,html{
     bottom: 0%;
 }
 
+.footnav1{
+    width:100%;
+    justify-content: center;
+    vertical-align: center;
+    display: flex;
+    display: none;
+    flex-wrap: wrap;
+    padding: 1% 0%;
+    height:max-content;
+    bottom: 0%;
+}
+
 .footnav p{
     margin-left: 2.5%;
     margin-right: 2.5%;
 }
-
+.footnav1 p{
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
 #circle{
     border-radius: 4px;
     border: none;
@@ -89,7 +132,7 @@ body,html{
    margin-top: 1%;
    height:35px;
    transition: 0.3s;
-   background-color: #222222;
+   background-color: #1b1b1b;
 }
 
 
@@ -119,8 +162,17 @@ body,html{
     height: 300px;
     border: 3px solid #D7D8D7;
     box-sizing: border-box;
+    animation: card1 ease-in-out 2s;
 }
 
+@keyframes card1{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 
 
 .title{
@@ -195,6 +247,16 @@ li:hover{
     top:0%;
     width: 35%;
     height: 100%;
+    animation: rightview ease-in 0.5s;
+}
+
+@keyframes rightview{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 .pic{
@@ -205,6 +267,19 @@ li:hover{
     background-position:50% 50% ;
 }
 
+.close{
+    position: absolute;
+    top:3%;
+    left: 6%;
+    color: white;
+    font-weight: 100;
+    transition: 0.3s;
+}
+
+.close:hover{
+    cursor: pointer;
+    transition: 0.3s;
+}
 .watch{
     text-transform: uppercase;
     padding: 2%;
@@ -279,6 +354,15 @@ p{
     }
 
     .footnav p{
+        margin-left: 3.5%;
+        margin-right: 3.5%;
+    }
+
+    .footnav1{
+        display: inline-block;
+    }
+    
+    .footnav1 p{
         margin-left: 3.5%;
         margin-right: 3.5%;
     }
