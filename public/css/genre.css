@@ -113,7 +113,7 @@ body,html{
     vertical-align: center;
     text-align: center ;
     color: #d7d8d7;
-    margin: 2%;
+    margin: 2% 0%;
     text-transform: uppercase;
     height: 300px;
     border: 3px solid #D7D8D7;
@@ -244,3 +244,23 @@ p{
   ::-webkit-scrollbar-thumb:hover {
     background: #00A8E1; 
   }
+
+  @media only screen and (max-width:450px){
+    .main{
+        width:80% ;
+    }
+    .card{
+        height:400px;
+    }
+
+    #circle{
+        width: 25%;
+        margin: 2%;
+    }
+
+    .footnav p{
+        margin-left: 3.5%;
+        margin-right: 3.5%;
+    }
+}
+
