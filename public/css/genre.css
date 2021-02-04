@@ -120,6 +120,8 @@ body,html{
     box-sizing: border-box;
 }
 
+
+
 .title{
     color: #d7d8d7;
     font-size: 85%;
@@ -132,7 +134,9 @@ body,html{
     margin: 1.5%;
 }
 .card:hover{
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0) 83.99%, #0A0A0A 100%);
     border-color: #b6362d;
+    cursor: pointer;
 }
 .logo{
     background:url('https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632562/logo_ieomoh.png') ;
