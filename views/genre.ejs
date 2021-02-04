@@ -29,7 +29,7 @@
             </button>
             
                                 <p style="text-align: center;">
-                                    <span id="inner" style="color: #b6362d;">1 </span>: 
+                                    <span id="inner" style="color: #b6362d;">1 </span> : 
                                     <span id="inner2"> 546</span>
                                 </p>
 
@@ -64,10 +64,13 @@
              function(res){
                 document.querySelector('#inner2').innerText = res.total_pages;
               for(let i=0;i<20;i++){
-                document.querySelector('.cont1').innerHTML+=` <div class="card" id="card${i}" >
-                    
-                    </div>`;
+                document.querySelector('.cont1').innerHTML+=` <div id="main${i}" class="main">
+                    <div class="card" id="card${i}"></div>
+                <p id="title${i}" class="title"></p>
+                <p id="title2${i}" class="title2"></p></div>`;
                     document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${res.results[i].poster_path}')`;
+                    document.getElementById(`title${i}`).innerText=res.results[i].original_title;
+                    document.getElementById(`title2${i}`).innerText=res.results[i].release_date.slice(0,4);
                }
             })
 
