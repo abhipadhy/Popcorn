@@ -9,6 +9,7 @@
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
 <body>
+    <div id="loader" class="center"></div> 
     <div class="left">
         <a href='/' class="logo"></a><br><br>
         <ul>
@@ -75,6 +76,21 @@
             if (val == '1'){
                 document.querySelector('.prev').disabled = true;
             }
+
+            document.onreadystatechange = function() { 
+                    if (document.readyState !== "complete") { 
+                        document.querySelector("body").style.visibility = "hidden"; 
+                        document.querySelector("#loader").style.visibility = "visible"; 
+                        
+                    } else { 
+                        setTimeout(() => {
+                            console.log('waiting');
+                            document.querySelector("#loader").style.visibility = "hidden";         
+                            document.querySelector("body").style.visibility = "visible";
+                        }, 1000);
+                    
+                    } 
+            }; 
         }; 
    
 
