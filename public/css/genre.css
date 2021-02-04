@@ -16,6 +16,23 @@ body,html{
     height: 40px; 
     animation: spin 2s linear infinite; 
 } 
+
+#read{
+    width: 88%;
+    height: 6%;
+    border: none;
+    color: white;
+     margin-left: 5%;
+    background-color: #b6362d;
+    transition: 0.3s;
+    outline:none;
+}
+
+#read:hover{
+    background-color:#00A8E1;
+    cursor: pointer;
+    transition: 0.3s;
+}
 @keyframes spin { 
     100% { 
         transform: rotate(360deg); 
