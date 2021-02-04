@@ -55,7 +55,8 @@
   
 </body>
 <script>
-    window.onload = disp(28,1);
+    var id=`<%= id %>`;
+    window.onload = disp(Number(id),1);
     
     function disp(id,page){
         document.querySelector('.cont1').innerHTML=' ';

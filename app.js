@@ -40,7 +40,7 @@ app.post('/',function(req,res){
 
 
 app.get('/genre',function(req,res){
-    res.render("genre.ejs",{key:process.env.APIKEY});
+    res.render("genre.ejs",{key:process.env.APIKEY,id:req.query.id});
 });
 
 app.get('*', function(req, res){
