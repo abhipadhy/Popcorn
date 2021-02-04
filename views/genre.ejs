@@ -6,6 +6,7 @@
     <title>Welcome to Popcorn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/genre.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="icon" type="image/svg" href="https://res.cloudinary.com/dsi0a9weg/image/upload/v1607632566/icon_oqz5n8.png">
 </head>
 <body>
@@ -41,6 +42,7 @@
     </div>
 
     <div class="right">
+        <h2 class="close" onclick="resize()"><i class="fas fa-times"></i></h2>
         <div class="watch">genre</div>
         <div class="pic"></div>
         <div class="rating">
@@ -133,14 +135,22 @@
        
    }
 
- function right(){
+ function right(){ // turns on the right div 
     document.querySelector('.left').style.width='65%';
     document.querySelector('.right').style.display='block';
     var arr = document.querySelectorAll('.card');
-    console.log(arr);
     arr.forEach(x => {
         x.style.height="200px";
     });
  }
+
+ function resize(){ //resizes right div back to normal
+    document.querySelector('.left').style.width='100%';
+    document.querySelector('.right').style.display='none';
+    var arr = document.querySelectorAll('.card');
+    arr.forEach(x => {
+        x.style.height="300px";
+    });
+ } 
 </script>
 </html>

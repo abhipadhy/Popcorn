@@ -72,7 +72,18 @@ body,html{
     vertical-align: center;
     height:fit-content;
     margin-top: 5%;
+    animation: cont1 ease-in-out 3s;
 }
+
+@keyframes cont1{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
 .main{
     justify-content: center;
     vertical-align: center;
@@ -121,7 +132,7 @@ body,html{
    margin-top: 1%;
    height:35px;
    transition: 0.3s;
-   background-color: #222222;
+   background-color: #1b1b1b;
 }
 
 
@@ -151,8 +162,17 @@ body,html{
     height: 300px;
     border: 3px solid #D7D8D7;
     box-sizing: border-box;
+    animation: card1 ease-in-out 2s;
 }
 
+@keyframes card1{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 
 
 .title{
@@ -231,6 +251,19 @@ li:hover{
     background-position:50% 50% ;
 }
 
+.close{
+    position: absolute;
+    top:3%;
+    left: 6%;
+    color: white;
+    font-weight: 100;
+    transition: 0.3s;
+}
+
+.close:hover{
+    cursor: pointer;
+    transition: 0.3s;
+}
 .watch{
     text-transform: uppercase;
     padding: 2%;
