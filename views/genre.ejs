@@ -11,14 +11,14 @@
 <body>
     <div id="loader" class="center"></div> 
     <div class="left">
-        <a href='/' class="logo"></a><br><br>
+        <a href='/' class="logo" style="display: none;"></a><br><br>
         <ul style="display: none;">
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li >HOME &nbsp;&nbsp;</li></a>
             <li style="color: #b6362d;" >GENRE &nbsp;&nbsp;</li>
             <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
             <a href="/search"><li id="search">SEARCH</li></a>
         </ul>
-        <br><br><br>
+        <br>
         <div class="cont1">
 
         </div>
@@ -56,7 +56,7 @@
 </body>
 <script>
     window.onload = disp(28,1);
-    
+
     function disp(id,page){
         document.querySelector('.cont1').innerHTML=' ';
         fetch(`https://api.themoviedb.org/3/discover/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`)
@@ -66,7 +66,7 @@
                 document.querySelector('#inner2').innerText = res.total_pages;
               for(let i=0;i<20;i++){
                 document.querySelector('.cont1').innerHTML+=` <div id="main${i}" class="main">
-                    <div class="card" id="card${i}"></div>
+                    <div class="card" id="card${i}" onClick="right()"></div>
                 <p id="title${i}" class="title"></p>
                 <p id="title2${i}" class="title2"></p></div>`;
                     document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${res.results[i].poster_path}')`;
@@ -99,6 +99,8 @@
    
 
    function next(){ // to display next 20 results
+        document.querySelector('.left').style.width='100%';
+        document.querySelector('.right').style.display='none';
         var prev = document.querySelector('.prev').disabled;
         if(prev === true){
 
@@ -113,6 +115,8 @@
    }
 
    function prev(){  //to display prev 20 results
+        document.querySelector('.left').style.width='100%';
+        document.querySelector('.right').style.display='none';
         var val = Number(document.querySelector('#inner').innerText);
         if (val === 2){
             document.querySelector('.prev').disabled=true;
@@ -127,5 +131,15 @@
         }
        
    }
+
+ function right(){
+    document.querySelector('.left').style.width='65%';
+    document.querySelector('.right').style.display='block';
+    var arr = document.querySelectorAll('.card');
+    console.log(arr);
+    arr.forEach(x => {
+        x.style.height="200px";
+    });
+ }
 </script>
 </html>
