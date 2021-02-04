@@ -108,6 +108,42 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
 <script>
+    function formatDate(d) 
+        {
+          var date = new Date(d);
+
+         if ( isNaN( date .getTime() ) ) 
+         {
+            return d;
+         }
+         else
+        {
+          
+          var month = new Array();
+          month[0] = "Jan";
+          month[1] = "Feb";
+          month[2] = "Mar";
+          month[3] = "Apr";
+          month[4] = "May";
+          month[5] = "Jun";
+          month[6] = "Jul";
+          month[7] = "Aug";
+          month[8] = "Sept";
+          month[9] = "Oct";
+          month[10] = "Nov";
+          month[11] = "Dec";
+
+          day = date.getDate();
+          
+          if(day < 10)
+          {
+             day = "0"+day;
+          }
+          
+          return    day  + " " +month[date.getMonth()] + " " + date.getFullYear();
+          }
+            
+         }
     var query = `<%=q %>`;
     console.log(query);
     
@@ -220,8 +256,8 @@
                                         document.getElementById('movie').innerText=x.title;
                             document.getElementById('mname').innerText=x.title;
                             document.getElementsByClassName('heading')[0].innerText=x.title;
-                            document.getElementById('release').innerText=x.release_date;
-                            document.getElementById('rdate').innerText=x.release_date;
+                            document.getElementById('release').innerText=formatDate(x.release_date);
+                            document.getElementById('rdate').innerText=formatDate(x.release_date);
                             document.getElementById('des').innerText=x.overview;
                             document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
                             document.getElementById('genres').innerText=`${x.genres[0].name} ,${x.genres[1].name} ,${x.genres[2].name} `;
@@ -272,8 +308,8 @@
                                         document.getElementById('movie').innerText=x.name;
                             document.getElementById('mname').innerText=x.name;
                             document.getElementsByClassName('heading')[0].innerText=x.name;
-                            document.getElementById('release').innerText=x.first_air_date;
-                            document.getElementById('rdate').innerText=x.first_air_date;
+                            document.getElementById('release').innerText=formatDate(x.first_air_date);
+                            document.getElementById('rdate').innerText=formatDate(x.first_air_date);
 
                                         
                             document.getElementById('des').innerText=x.overview;
