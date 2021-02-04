@@ -56,6 +56,7 @@
     </div>
   
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
     var id=`<%= id %>`;
     window.onload = disp(Number(id),1);
@@ -139,7 +140,7 @@
    }
 
  function right(){ // turns on the right div 
-    document.querySelector('.left').style.width='65%';
+    $(".left").animate({width: "65%"});
     document.querySelector('.right').style.display='block';
     var arr = document.querySelectorAll('.card');
     arr.forEach(x => {
@@ -148,7 +149,7 @@
  }
 
  function resize(){ //resizes right div back to normal
-    document.querySelector('.left').style.width='100%';
+    $(".left").animate({width: "100%"});
     document.querySelector('.right').style.display='none';
     var arr = document.querySelectorAll('.card');
     arr.forEach(x => {
