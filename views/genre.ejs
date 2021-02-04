@@ -82,6 +82,7 @@
             console.log(val);
             if (val == '1'){
                 document.querySelector('.prev').disabled = true;
+        
             }
 
             document.onreadystatechange = function() { 
@@ -101,36 +102,38 @@
         }; 
    
 
-   function next(){ // to display next 20 results
+   function next(id){ // to display next 20 results
         document.querySelector('.left').style.width='100%';
         document.querySelector('.right').style.display='none';
         var prev = document.querySelector('.prev').disabled;
         if(prev === true){
 
             document.querySelector('.prev').disabled=false;
+        
           
         }
         
         var val = Number(document.querySelector('#inner').innerText);
         val= val +1;
-        disp(28,val);
+        disp(Number(id),val);
         document.querySelector('#inner').innerText = val;
    }
 
-   function prev(){  //to display prev 20 results
+   function prev(id){  //to display prev 20 results
         document.querySelector('.left').style.width='100%';
         document.querySelector('.right').style.display='none';
         var val = Number(document.querySelector('#inner').innerText);
         if (val === 2){
             document.querySelector('.prev').disabled=true;
+     
             val = val-1;
-            disp(28,val);
+            disp(Number(id),val);
             document.querySelector('#inner').innerText = val;
         }
         else{
             val = val-1;
             document.querySelector('#inner').innerText = val;
-            disp(28,val);
+            disp(Number(id),val);
         }
        
    }
