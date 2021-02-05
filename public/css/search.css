@@ -129,7 +129,7 @@ img{
     position:absolute;
     top: 5%;
     width: 27%;
-    height:fit-content;
+    height:max-content;
     left: 70%;
 }
 
@@ -143,6 +143,46 @@ input{
     font-size: 80%;
     border: 0.5px solid transparent;
     outline:none;
+}
+
+#suggestions{
+    display: none;
+    position:absolute;
+    width:98.7%;
+    height:max-content;
+    overflow-y:scroll;
+    background-color: #0f0f0fde;
+}
+
+.sugcard{
+    width:100% ;
+    height: max-content;
+    transition: 0.3s;
+}
+
+.sugcard:hover{
+    background-color: #1d1d1df5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#scardname{
+    margin: 0%;
+    text-align: left;
+    padding-left: 5%;
+    left: 10%;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: rgba(221, 221, 221, 0.904);
+}
+
+#scardyear{
+    text-align: left;
+    margin: 0%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    font-size: 60%;
+    color: rgb(195, 226, 158);
 }
 button{
     background-color: #d6362d;
@@ -685,6 +725,9 @@ li:hover{
         
     }
 
+    #suggestions{
+        width: 98.5%;
+    }
    
 
     .squery input::placeholder{

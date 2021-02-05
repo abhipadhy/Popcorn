@@ -16,10 +16,17 @@
             <div ></div>
         </div>
         <div class="squery">
-            <input type="text" id="search" name="query" placeholder="Search for movie or tv-shows here.">
-             
-            <button onclick="search()">SEARCH</button>
+            <input type="text" id="search" name="query" placeholder="Search for movie or tv-shows here." autocomplete="off" oninput="suggest()">
+            <br>
+            <div id="suggestions">
+                <div class="sugcard">
+                    <h2 id="scardname">the irishman</h2>
+                    <p id="scardyear">2019</p>
+                </div>
+            </div>
         </div>
+        <br>
+      
         <h2 id="rdate" style="text-transform: uppercase;">Search your movies/tv shows here</h2>
         <h1 id="mname" style="text-transform: uppercase;">SEARCH</h1>
         
@@ -108,7 +115,32 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
 <script>
-    function formatDate(d) 
+
+    function suggest(){  //auto suggest function
+        console.log('value : ' + typeof(document.querySelector('#search').value));
+
+        if(document.querySelector('#suggestions').style.display =='block'){
+            document.querySelector('#scardname').innerText = document.querySelector('#search').value;
+
+            if(document.querySelector('#search').value =='' || document.querySelector('#search').value == null){
+                document.querySelector('#suggestions').style.display='none';
+            }
+        }
+        else{
+            document.querySelector('#suggestions').style.display='block';
+            document.querySelector('#scardname').innerText = document.querySelector('#search').value;
+
+            if(document.querySelector('#search').value =='' || document.querySelector('#search').value == null){
+                document.querySelector('#suggestions').style.display='none';
+            }
+        }   
+       
+        
+    
+    } ;
+
+
+    function formatDate(d)  // formats the date
         {
           var date = new Date(d);
 
