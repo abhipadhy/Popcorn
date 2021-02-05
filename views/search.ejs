@@ -23,6 +23,18 @@
                     <h2 id="scardname">the irishman</h2>
                     <p id="scardyear">2019</p>
                 </div>
+                <div class="sugcard">
+                    <h2 id="scardname">the irishman</h2>
+                    <p id="scardyear">2019</p>
+                </div>
+                <div class="sugcard">
+                    <h2 id="scardname">the irishman</h2>
+                    <p id="scardyear">2019</p>
+                </div>
+                <div class="sugcard">
+                    <h2 id="scardname">the irishman</h2>
+                    <p id="scardyear">2019</p>
+                </div>
             </div>
         </div>
         <br>
@@ -214,6 +226,7 @@
     }
     document.querySelector('#search').onkeydown=function (e){
         if(e.keyCode === 13){
+            document.querySelector('#suggestions').style.display='none';
             search();
         }
     };

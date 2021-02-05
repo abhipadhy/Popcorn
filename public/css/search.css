@@ -150,6 +150,7 @@ input{
     position:absolute;
     width:98.7%;
     height:max-content;
+    max-height: 600%;
     overflow-y:scroll;
     background-color: #0f0f0fde;
 }
@@ -727,6 +728,7 @@ li:hover{
 
     #suggestions{
         width: 98.5%;
+        height: 300%;
     }
    
 
