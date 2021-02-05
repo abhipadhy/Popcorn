@@ -16,25 +16,10 @@
             <div ></div>
         </div>
         <div class="squery">
-            <input type="text" id="search" name="query" placeholder="Search for movie or tv-shows here." autocomplete="off" oninput="suggest()">
+            <input type="text" id="search" name="query" placeholder="Search for movie or tv-shows here." autocomplete="off" oninput="suggest(this.value)">
             <br>
             <div id="suggestions">
-                <div class="sugcard">
-                    <h2 id="scardname">the irishman</h2>
-                    <p id="scardyear">2019</p>
-                </div>
-                <div class="sugcard">
-                    <h2 id="scardname">the irishman</h2>
-                    <p id="scardyear">2019</p>
-                </div>
-                <div class="sugcard">
-                    <h2 id="scardname">the irishman</h2>
-                    <p id="scardyear">2019</p>
-                </div>
-                <div class="sugcard">
-                    <h2 id="scardname">the irishman</h2>
-                    <p id="scardyear">2019</p>
-                </div>
+               
             </div>
         </div>
         <br>
@@ -128,11 +113,37 @@
 
 <script>
 
-    function suggest(){  //auto suggest function
-        console.log('value : ' + typeof(document.querySelector('#search').value));
+    function suggest(sk){  //auto suggest function
 
         if(document.querySelector('#suggestions').style.display =='block'){
-            document.querySelector('#scardname').innerText = document.querySelector('#search').value;
+
+            fetch(`https://api.themoviedb.org/3/search/multi?api_key=<%= key %>&query=${sk}&page=1&include_adult=false`)
+            .then(response => response.json())
+            .then(
+                function(data){
+                    
+                    document.getElementById('suggestions').innerHTML = '';
+                    console.log(data);
+                    data.results.forEach(i => {
+                    
+                        if(i.media_type == 'tv'){
+                            document.getElementById('suggestions').innerHTML += `
+                                <div class="sugcard" id="${i.id}" name="${i.media_type}">
+                                    <h2 id="scardname">${i.original_name}<span style="color:#d6362d;font-size:60%;">&nbsp; [${i.media_type}]</span></h2>
+                                    <p id="scardyear">${i.first_air_date}</p>
+                                </div>`;
+                        }
+                        else if(i.media_type == 'movie'){
+                            
+                            document.getElementById('suggestions').innerHTML += `
+                                <div class="sugcard" id="${i.id}" name="${i.media_type}">
+                                    <h2 id="scardname">${i.original_title}<span style="color:#d6362d;font-size:60%;">&nbsp; [${i.media_type}]</h2>
+                                    <p id="scardyear">${i.release_date}</p>
+                                </div>`;
+                        }
+                     
+                    });
+                })
 
             if(document.querySelector('#search').value =='' || document.querySelector('#search').value == null){
                 document.querySelector('#suggestions').style.display='none';
@@ -140,7 +151,6 @@
         }
         else{
             document.querySelector('#suggestions').style.display='block';
-            document.querySelector('#scardname').innerText = document.querySelector('#search').value;
 
             if(document.querySelector('#search').value =='' || document.querySelector('#search').value == null){
                 document.querySelector('#suggestions').style.display='none';
@@ -150,6 +160,145 @@
         
     
     } ;
+
+document.querySelectorAll('.sugcard').forEach(x => {
+    x.addEventListener('click',event =>{console.log('coco');});
+});
+
+    function autosearch(id,type) {
+        var vid ='';
+        console.log( 'type: '+ type);
+        var imga='';
+    fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=<%=key%>&language=en-US`)
+    .then(response => response.json())
+    .then(
+     function(res){
+        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=<%= key %>&language=en-US`)
+                        .then(response=>response.json())
+                        .then(function(t){
+                            for(let i=1;i<=4;i++)
+                            {
+                                document.getElementById(`name${i}`).innerText=`${t.cast[i-1].name} AS ${t.cast[i-1].character}`;
+                                document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${t.cast[i-1].profile_path}')`;
+
+                            }
+                        })     
+       
+            
+                    iid  = `https://image.tmdb.org/t/p/original${res.backdrop_path}`;
+                    console.log(iid);
+                  
+                    if(res.media_type.localeCompare('movie')===0){
+                    
+                    fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=<%= key %>&language=en-US`)
+                    .then(response => response.json())
+                    .then(function (data){
+                        if(data.results[0])
+                        {
+                            vid = data.results[0].key;
+                        }
+                        else{
+                            vid = undefined;
+                        }
+                        
+                       if(vid){
+                        if (vid ===''){
+                            document.querySelector('iframe').style.display="none";
+                            document.querySelector('.alt').style.display="block"; 
+                        }
+                        else{
+                            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+                            document.querySelector('iframe').style.display="block";
+                            document.querySelector('.alt').style.display="none"; 
+                        }
+                       }
+                       else{
+                            document.querySelector('iframe').style.display="none";
+                            document.querySelector('.alt').style.display="block"; 
+                            
+                       }
+                        
+                    
+                        
+                    });
+
+                        fetch(`https://api.themoviedb.org/3/movie/${res.id}?api_key=<%= key %>&language=en-US`)
+                        .then(response => response.json()
+                        .then(
+                            function(x){
+                                document.getElementById('movie').innerText=x.title;
+                    document.getElementById('mname').innerText=x.title;
+                    document.getElementsByClassName('heading')[0].innerText=x.title;
+                    document.getElementById('release').innerText=formatDate(x.release_date);
+                    document.getElementById('rdate').innerText=formatDate(x.release_date);
+                    document.getElementById('des').innerText=x.overview;
+                    document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
+                    document.getElementById('genres').innerText=`${x.genres[0].name} ,${x.genres[1].name} ,${x.genres[2].name} `;
+                    document.getElementById('runtime').innerText=x.runtime;
+                   document.getElementById('rating').innerText=x.vote_average +" / 10";
+                            }
+                        )).catch(error=>console.log(error))
+                        
+                    
+                    }
+                    else{
+
+                        fetch(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=<%= key %>&language=en-US`)
+                        .then(response=>response.json())
+                        .then(function(t){
+                            console.log(res.id);
+                            for(let i=1;i<=4;i++)
+                            {
+                                document.getElementById(`name${i}`).innerText=`${t.cast[i-1].name} AS ${t.cast[i-1].character}`;
+                                document.getElementById(`card${i}`).style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${t.cast[i-1].profile_path}')`;
+
+                            }
+                        })                                
+
+                        fetch(`https://api.themoviedb.org/3/tv/${res.id}/videos?api_key=<%= key %>&language=en-US`)
+                    .then(response => response.json())
+                    .then(function (data){
+                        vid = data.results[0].key;
+                        if (vid ===''){
+                            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/'); 
+                            document.querySelector('iframe').style.display="block";
+                        }
+                        else{
+                            console.log('vid : ' + vid);
+                    
+                            document.querySelector('iframe').setAttribute('src','https://www.youtube.com/embed/'+vid);
+                            document.querySelector('iframe').style.display="block";
+                        }
+                        
+                    
+                        
+                    });
+                        
+                        fetch(`https://api.themoviedb.org/3/tv/${res.id}?api_key=<%= key %>&language=en-US`)
+                        .then(response => response.json()
+                        .then(
+                            function(x){
+                                document.getElementById('movie').innerText=x.name;
+                    document.getElementById('mname').innerText=x.name;
+                    document.getElementsByClassName('heading')[0].innerText=x.name;
+                    document.getElementById('release').innerText=formatDate(x.first_air_date);
+                    document.getElementById('rdate').innerText=formatDate(x.first_air_date);
+
+                                
+                    document.getElementById('des').innerText=x.overview;
+                    document.querySelector('.pic').style.backgroundImage=`linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url(${iid})`;
+                    document.getElementById('runtime').innerText=x.runtime;           
+                    document.getElementById('runtime').innerText=x.runtime;
+                   document.getElementById('rating').innerText=x.vote_average +" / 10";
+                            }
+                        )).catch(error=>console.log(error))
+                      
+                    }
+                
+                })
+                .catch(error => console.log('error', error));
+            }
+
 
 
     function formatDate(d)  // formats the date
@@ -243,7 +392,7 @@
     }
 
    
-    function data(ans){
+    function data(ans){ // data func
 
         var vid ='';
         var imga='';

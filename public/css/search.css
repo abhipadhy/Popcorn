@@ -150,7 +150,7 @@ input{
     position:absolute;
     width:98.7%;
     height:max-content;
-    max-height: 600%;
+    max-height: 1000%;
     overflow-y:scroll;
     background-color: #0f0f0fde;
 }
