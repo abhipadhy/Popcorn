@@ -53,6 +53,8 @@ body,html{
     left:0%;
     top:0%;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     height: 100%;
     height: max-content;
     animation: leftview ease 2s;
@@ -71,7 +73,6 @@ body,html{
     justify-content:center;
     vertical-align: center;
     height:fit-content;
-    margin-top:5% ;
     animation: cont1 ease-in-out 3s;
 }
 
@@ -195,12 +196,12 @@ body,html{
     background-size:contain;
     background-position:50% 50% ;
     background-repeat: no-repeat;
+    margin-left: 42%;
     width:15%;
     height: 5%;
     position: absolute;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     vertical-align: center;
 }
 
@@ -218,10 +219,12 @@ body,html{
 }
 
 ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
-    position: absolute;
-  
-
+    margin-top: 6%;
+    margin-left: 37%;
 }
 
 li{
