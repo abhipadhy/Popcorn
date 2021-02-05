@@ -29,61 +29,48 @@
         
         <ul>
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li style="color: #b6362d;">HOME &nbsp;&nbsp;</li></a>
-            <li>GENRE &nbsp;&nbsp;</li>
-            <!-- <div class="dropdown" >
-                <a href="/genre?id=28" class="droplink">ACTION</a><br>
-                <a href="/genre?id=12" class="droplink">ADVENTURE</a><br>
-                <a href="/genre?id=16" class="droplink">ANIMATION</a><br>
-                <a href="/genre?id=35" class="droplink">comedy</a><br>
-                <a href="/genre?id=80" class="droplink">crime</a><br>
-                <a href="/genre?id=99" class="droplink">documentary</a><br>
-                <a href="/genre?id=18" class="droplink">drama</a><br>
-                <a href="/genre?id=10751" class="droplink">family</a><br>
-                <a href="/genre?id=14" class="droplink">fantasy</a><br>
-                <a href="/genre?id=36" class="droplink">history</a><br>
-                <a href="/genre?id=27" class="droplink">horror</a><br>
-                <a href="/genre?id=10402" class="droplink">music</a><br>
-                <a href="/genre?id=9648" class="droplink">mystery</a><br>
-                <a href="/genre?id=10749" class="droplink">romance</a><br>
-                <a href="/genre?id=878" class="droplink">science fiction</a><br>
-                <a href="/genre?id=10770" class="droplink">tv movie</a><br>
-                <a href="/genre?id=53" class="droplink">thriller</a><br>
-                <a href="/genre?id=10752" class="droplink">war</a><br>
-                <a href="/genre?id=37" class="droplink">western</a><br>
-    
-            </div> -->
+            <li onclick=" droplist()">GENRE &nbsp;&nbsp;</li>
             <a href="/trending" style="text-decoration: none; color: #d7d8d7;"><li>TRENDING &nbsp;&nbsp;</li></a>
             <a href="/search"><li id="search">SEARCH</li></a>
         </ul>
+        <div class="dropdown" >
+            <a href="/genre?id=28" class="droplink">ACTION</a><br>
+            <a href="/genre?id=12" class="droplink">ADVENTURE</a><br>
+            <a href="/genre?id=16" class="droplink">ANIMATION</a><br>
+            <a href="/genre?id=35" class="droplink">comedy</a><br>
+            <a href="/genre?id=80" class="droplink">crime</a><br>
+            <a href="/genre?id=99" class="droplink">documentary</a><br>
+            <a href="/genre?id=18" class="droplink">drama</a><br>
+            <a href="/genre?id=10751" class="droplink">family</a><br>
+            <a href="/genre?id=14" class="droplink">fantasy</a><br>
+            <a href="/genre?id=36" class="droplink">history</a><br>
+            <a href="/genre?id=27" class="droplink">horror</a><br>
+            <a href="/genre?id=10402" class="droplink">music</a><br>
+            <a href="/genre?id=9648" class="droplink">mystery</a><br>
+            <a href="/genre?id=10749" class="droplink">romance</a><br>
+            <a href="/genre?id=878" class="droplink">science fiction</a><br>
+            <a href="/genre?id=10770" class="droplink">tv movie</a><br>
+            <a href="/genre?id=53" class="droplink">thriller</a><br>
+            <a href="/genre?id=10752" class="droplink">war</a><br>
+            <a href="/genre?id=37" class="droplink">western</a><br>
+
+        </div>
     </div>
    
-    <!-- <div class="cursor"></div> -->
+    
 </body>
 
 <script>
-    const cursor = document.querySelector('.cursor');
-
-        document.addEventListener('mousemove', e => {
-            cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
-        })
-
-    document.addEventListener('click', () => {
-        cursor.classList.add("expand");
-
-        setTimeout(() => {
-            cursor.classList.remove("expand");
-        }, 500)
-    })
-
-   
-</script>
-
-<script>
-    window.addEventListener('beforeinstallprompt', (event) => {
-  console.log('👍', 'beforeinstallprompt', event);
-  // Stash the event so it can be triggered later.
-  window.deferredPrompt = event;
-  // Remove the 'hidden' class from the install button container
-  divInstall.classList.toggle('hidden', false);
-});
+    function droplist(){
+        var drop = document.querySelector('.dropdown');
+        var style = window.getComputedStyle(drop);
+        var val = style.getPropertyValue('display');
+        console.log(val);
+        if(val === 'none'){
+            drop.style.display="block";
+        }
+        else{
+            drop.style.display="none";
+        }
+    }
 </script>

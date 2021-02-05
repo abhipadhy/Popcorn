@@ -129,18 +129,21 @@
                         if(i.media_type == 'tv'){
                             document.getElementById('suggestions').innerHTML += `
                                 <div class="sugcard" id="${i.id}" name=${i.media_type} onclick='autosearch(this.id,this.attributes["name"].value)'>
+                                   
                                     <h2 id="scardname">${i.original_name}<span style="color:#d6362d;font-size:60%;">&nbsp; [${i.media_type}]</span></h2>
-                                    <p id="scardyear">${i.first_air_date}</p>
+                                    <p id="scardyear">${i.first_air_date.slice(0,4)}</p>
                                 </div>`;
-                               
+                                // document.querySelector('#sposter').style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${i.poster_path}')`; 
                         }
                         else if(i.media_type == 'movie'){
                             
                             document.getElementById('suggestions').innerHTML += `
                                 <div class="sugcard" id="${i.id}" name=${i.media_type} onclick='autosearch(this.id,this.attributes["name"].value)'>
+                               
                                     <h2 id="scardname">${i.original_title}<span style="color:#d6362d;font-size:60%;">&nbsp; [${i.media_type}]</h2>
-                                    <p id="scardyear">${i.release_date}</p>
+                                    <p id="scardyear">${i.release_date.slice(0,4)}</p>
                                 </div>`;
+                            // document.querySelector('#sposter').style.backgroundImage= `linear-gradient(180deg, rgba(10, 10, 10, 0) 13.99%, #0A0A0A 100%),url('https://image.tmdb.org/t/p/original${i.poster_path}')`;
                                 
                         }
                      
