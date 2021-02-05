@@ -12,7 +12,7 @@
 <body>
     <div id="loader" class="center"></div> 
     <div class="left">
-        <a href='/' class="logo" style="display: none;"></a><br><br>
+        <a href='/' class="logo" ></a><br><br>
         <ul style="display: none;">
             <a href="/" style="text-decoration: none; color: #d7d8d7;"><li >HOME &nbsp;&nbsp;</li></a>
             <li style="color: #b6362d;" >GENRE &nbsp;&nbsp;</li>
@@ -52,7 +52,7 @@
         <h2 id="title"></h2>
         <h5 id="r_date"></h5>
         <p id="overview" style=" font-size:70%;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo consequuntur similique nam labore ullam voluptatum, adipisci eius natus quam reprehenderit et ipsa neque consectetur voluptas excepturi cupiditate provident ipsum. Inventore!</p>
-        <a href=""><button id="read">READ MORE</button></a>
+        <a href="" id="plink"><button id="read">READ MORE</button></a>
     </div>
   
 </body>
@@ -140,6 +140,7 @@
    }
 
  function right(id){ // turns on the right div 
+    var link;
     $(".left").animate({width: "65%"});
     document.querySelector('.right').style.display='block';
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=<%=key%>&language=en-US`)
@@ -150,6 +151,9 @@
             document.getElementById('r_date').innerText= formatDate(res.release_date);
             document.getElementById('overview').innerText=res.overview;
             document.getElementById('title').innerText=res.original_title;
+            link=res.original_title;
+            console.log(link);
+            $('#plink').attr("href", "/search?str="+link);
             document.getElementById('rating').innerText=res.vote_average+' / 10';
            
 

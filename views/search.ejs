@@ -146,6 +146,8 @@
          }
     var query = `<%=q %>`;
     console.log(query);
+    var str = `<%=str %>`;
+    console.log(str);
     
      function ldata(){
         if(query){
@@ -155,6 +157,13 @@
             document.querySelector('.info').style.display="block";
             document.querySelector('.foot1').style.display="block";
             data(query);
+        }
+        else if(str){
+            document.querySelector('.pcon').style.display="none";
+            document.querySelector('.net').style.display="block";
+            document.querySelector('.info').style.display="block";
+            document.querySelector('.foot1').style.display="block";
+            data(str);
         }
     }
 
