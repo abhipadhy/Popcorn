@@ -128,18 +128,20 @@
                     
                         if(i.media_type == 'tv'){
                             document.getElementById('suggestions').innerHTML += `
-                                <div class="sugcard" id="${i.id}" name="${i.media_type}">
+                                <div class="sugcard" id="${i.id}" name=${i.media_type} onclick='autosearch(this.id,this.attributes["name"].value)'>
                                     <h2 id="scardname">${i.original_name}<span style="color:#d6362d;font-size:60%;">&nbsp; [${i.media_type}]</span></h2>
                                     <p id="scardyear">${i.first_air_date}</p>
                                 </div>`;
+                               
                         }
                         else if(i.media_type == 'movie'){
                             
                             document.getElementById('suggestions').innerHTML += `
-                                <div class="sugcard" id="${i.id}" name="${i.media_type}">
+                                <div class="sugcard" id="${i.id}" name=${i.media_type} onclick='autosearch(this.id,this.attributes["name"].value)'>
                                     <h2 id="scardname">${i.original_title}<span style="color:#d6362d;font-size:60%;">&nbsp; [${i.media_type}]</h2>
                                     <p id="scardyear">${i.release_date}</p>
                                 </div>`;
+                                
                         }
                      
                     });
@@ -161,18 +163,28 @@
     
     } ;
 
-document.querySelectorAll('.sugcard').forEach(x => {
-    x.addEventListener('click',event =>{console.log('coco');});
-});
+// document.querySelectorAll('.sugcard').forEach(x => {
+//     x.addEventListener('click',event =>{console.log('coco');});
+// });
 
     function autosearch(id,type) {
+      
+            
+            document.querySelector('.pcon').style.display="none";
+            document.querySelector('.net').style.display="block";
+            document.querySelector('.info').style.display="block";
+            document.querySelector('.foot1').style.display="block";
+            data(query);
+        
+       
         var vid ='';
-        console.log( 'type: '+ type);
+        console.log( id+' '+ type);
         var imga='';
     fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=<%=key%>&language=en-US`)
     .then(response => response.json())
     .then(
      function(res){
+      
         fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=<%= key %>&language=en-US`)
                         .then(response=>response.json())
                         .then(function(t){
@@ -188,7 +200,7 @@ document.querySelectorAll('.sugcard').forEach(x => {
                     iid  = `https://image.tmdb.org/t/p/original${res.backdrop_path}`;
                     console.log(iid);
                   
-                    if(res.media_type.localeCompare('movie')===0){
+                    if(type.localeCompare('movie')===0){
                     
                     fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=<%= key %>&language=en-US`)
                     .then(response => response.json())
