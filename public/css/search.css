@@ -154,6 +154,16 @@ input{
     max-height: 1000%;
     overflow-y:scroll;
     background-color: #0f0f0fde;
+    animation: suggview ease-in-out 1.0s;
+}
+
+@keyframes suggview{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 #sposter{
@@ -752,6 +762,7 @@ li:hover{
     }
 
     #suggestions{
+        display: none;
         width: 98.5%;
         height: 300%;
     }
