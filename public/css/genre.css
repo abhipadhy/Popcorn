@@ -368,5 +368,27 @@ p{
         margin-left: 3.5%;
         margin-right: 3.5%;
     }
+
+    .logo{
+        margin-left: 35%;
+        width: 30%;
+        height: 1%;
+    }
+
+    ul{
+        padding: 0%;
+        flex-direction:row;
+        justify-content: center;
+        position: absolute;
+        margin-top: 0;
+        margin: 0%;
+        margin-left: 8%;
+        margin-bottom: 3%;
+        top: 1%;
+    }
+
+    .cont1{
+        margin-top: 40%;
+    }
 }
 
